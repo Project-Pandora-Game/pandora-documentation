@@ -1,4 +1,7 @@
+[![hackmd-github-sync-badge](https://hackmd.io/jUhzIyWHQOOC0E9gd2kuCw/badge)](https://hackmd.io/jUhzIyWHQOOC0E9gd2kuCw)
+
 # Project Pandora
+
 
 ## Technology Stack/Language Choices
 
