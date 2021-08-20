@@ -61,7 +61,7 @@ A character is made up entirely of BodySegment objects, referred to simply as se
 (**Weight** is defined in the code but has no implementation yet)
 
 
-The above properties aree fairly dense and complex to understand. The most important ones to understand are Position and Rotation.
+The above properties are fairly dense and complex to understand. The most important ones to understand are Position and Rotation.
 
 #### Rotating Segments <a name="rotating"></a>
 
