@@ -83,7 +83,7 @@ updateExtension() also handles the Hide property.
 
 #### Sorting  <a name="sorting"></a>
 
-SkeletonContainer contains a function called sortRenderOrder() which is run whenever a change is made to the skeleton. However, sorting every frame may cause framerate drops. It is recommended to flag a change to the skeleton:
+SkeletonContainer contains a function called `sortRenderOrder()` which is run whenever a change is made to the skeleton. However, sorting every frame may cause framerate drops. It is recommended to flag a change to the skeleton:
 * Every time a pose is added or removed to the skeleton
 * Every time a change is made to a segment whose priority depends on or affects its own extension or the extension of a different segment. To avoid framerate drops from this happening every frame during an animation, it is recommended to either run it at the start and end of an animation, or to use different segments with different properties and Hide functions in order to perform extension-based priority changes.
 
