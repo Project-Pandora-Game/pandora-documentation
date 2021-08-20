@@ -55,7 +55,7 @@ A character is made up entirely of BodySegment objects, referred to simply as se
 * **Invert:** A helpful property that inverts most X-values and angles when it comes to position and translation, allowing the left and right versions of a limb to be defined with minimal changes to the data.
 * **Position:** An object containing data on where the pivot point of the sprite is, and where the segment is located relative to it's parent's origin (before parent rotation)
 * **Rotation:** An object containing data on how the segment will rotate, including max, min angles and also properties on how to translate the object based on rotation (to make joints fit more naturally)
-* **Hide:** A function that can be defined, passing the whole skeleton as an argument. If true, thee segment is hidden and not rendered, although its children will still be rendered.
+* **Hide:** A function that can be defined, passing the whole skeleton as an argument. If true, the segment is hidden and not rendered, although its children will still be rendered.
 * **Ext:** An object containing data on setting an Extension Parent. This is basically an object which the present object will copy a rotation angle from, times a multiplier. Good for creating things like hips and shoulders which don't rotate fully with the arm.
 
 (**Weight** is defined in the code but has no implementation yet)
