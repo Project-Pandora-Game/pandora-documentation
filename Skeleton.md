@@ -96,7 +96,7 @@ The primary way to determine the render order is by adding Priority rules to a s
 
 ### Poses <a name="poses"></a>
 
-The BodySkeleton object has a PoseTags field which tracks the current pose tags. Unlike BC, a Pose Tag is not a full pose but are rather flags meant to allow creating priority and hiding rules based on what the body is doing. The FIST_LEFT pose, for example, hides the open palm segment and unhides the fist segment. The BOXTIE pose segment is used to hide the forearms in the boxtie pose for the side view, as they aren't rendered due to limitations (but an asset maker could easily add a piece that is rendered when the character is boxtied and hidden otherwise).
+The BodySkeleton object has a `PoseTags` field which tracks the current pose tags. Unlike BC, a Pose Tag is not a full pose but are rather flags meant to allow creating priority and hiding rules based on what the body is doing. The `FIST_LEFT` pose, for example, hides the open palm segment and unhides the fist segment. The `BOXTIE` pose segment is used to hide the forearms in the boxtie pose for the side view, as they aren't rendered due to limitations (but an asset maker could easily add a piece that is rendered when the character is boxtied and hidden otherwise).
 
 ### Animations <a name="animations"></a>
 
