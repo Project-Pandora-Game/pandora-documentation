@@ -73,7 +73,7 @@ The parent's rotation also causes the segment to move around. When a segment rot
 
 ### Render and Sorting
 
-A BodySkeleton object is used to store a number of BodySegments. After adding a number of BodySegments to a skeleton, the skeleton calls assignParents("Torso") to resolve parents, set internal pointers, and set the torso as the primary element of the skeleton.
+A BodySkeleton object is used to store a number of BodySegments. After adding a number of BodySegments to a skeleton, the skeleton calls `assignParents("Torso")` to resolve parents, set internal pointers, and set the torso as the primary element of the skeleton.
 
 A SkeletonContainer object contains the skeleton, along with drawing elements such as PIXI.js Containers. The primary reason this is separate from a BodySkeleton is to help with serialization (you can serialize the skeleton and create a SkeletonContainer when you deserialize). The SkeletonContainer contains no fields that are not automatically determined from the Skeleton itself, although it does preserve the renderOrder in order to avoid having to sort it every frame.
 The other reason why SkeletonContainers are separate from BodySkeleton is to segregate drawing code from the skeleton object. This, again, aids with referencing the skeleton objects as it encapsulates rendering features into the container class.
