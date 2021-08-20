@@ -3,14 +3,14 @@
 This is a guide to the design of the proposed skeleton model for Pandora. The skeleton is proposed as a means of incorporating assets (a.k.a items, clothes, restraints, etc) into the game in a way that makes it easy to develop for contributors moving forward.
 
 # Table of Contents
-* [Historical Problems]("#historical-problems")
-* [Proposed Solutions]("#proposed-solutions")
-* [The System Itself]("#the-system-itself")
-	* [Segments]("#segments")
-		* [Rotating Segments]("#rotating-segments")
-	* [Render and Sorting]("#render-and-sorting")
-	* [Poses]("#poses")
-	* [Animations]("#animations")
+* [Historical Problems](#historical-problems)
+* [Proposed Solutions](#proposed-solutions)
+* [The System Itself](#the-system-itself)
+	* [Segments](#segments)
+		* [Rotating Segments](#rotating-segments)
+	* [Render and Sorting](#render-and-sorting)
+	* [Poses](#poses)
+	* [Animations](#animations)
 
 
 ## Historical Problems
