@@ -15,7 +15,7 @@ This is a guide to the design of the proposed skeleton model for Pandora. The sk
 
 ## Historical Problems <a name="historical"></a>
 
-In BC, the asset model involveed static images for every pose that was different from the default pose. This results in exponential multiplication of assets, as separate images are required for:
+In BC, the asset model involved static images for every pose that was different from the default pose. This results in exponential multiplication of assets, as separate images are required for:
 * Every body type
 * Every pose
 * Every type/variation of the item that depends on the above
