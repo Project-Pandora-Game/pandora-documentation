@@ -67,7 +67,7 @@ The above properties are fairly dense and complex to understand. The most import
 
 Rather than an absolute angle, segments have a variable known as Extension that basically tracks how extended a body part is from 1 to -1. An extension of 0 means the object is in its default position, 1 means it is at its AngleMax value (defined in the Rotation object), and -1 means it is at AngleMin.
 
-Segments inherit rotation from their parent, and this does not apply to their extension. So if, say, an arm is rotated at 100 degrees, and the hand is at extention 1.0 and rotated 30 degrees by itself, then the total angle (as the sprite would be drawn on the screen) would be 130 degrees.
+Segments inherit rotation from their parent, and this does not apply to their extension. So if, say, an arm is rotated at 100 degrees, and the hand is at extension 1.0 and rotated 30 degrees by itself, then the total angle (as the sprite would be drawn on the screen) would be 130 degrees.
 
 The parent's rotation also causes the segment to move around. When a segment rotates, all of its children rotate with it, using a recursive matrix transformation in the rendering script. 
 
