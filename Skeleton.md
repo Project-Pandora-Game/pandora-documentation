@@ -3,17 +3,17 @@
 This is a guide to the design of the proposed skeleton model for Pandora. The skeleton is proposed as a means of incorporating assets (a.k.a items, clothes, restraints, etc) into the game in a way that makes it easy to develop for contributors moving forward.
 
 # Table of Contents
-* [Historical Problems]("#historical")
-* [Proposed Solutions]("#proposed")
-* [The System Itself]("#system")
+* [Historical Problems]("#historical-problems")
+* [Proposed Solutions]("#proposed-solutions")
+* [The System Itself]("#the-system-itself")
 	* [Segments]("#segments")
-		* [Rotating Secments]("#rotating")
-	* [Render and Sorting]("#render")
+		* [Rotating Segments]("#rotating-segments")
+	* [Render and Sorting]("#render-and-sorting")
 	* [Poses]("#poses")
-	* [Animations (TODO)]("#animations")
+	* [Animations]("#animations")
 
 
-## Historical Problems <a name="historical"></a>
+## Historical Problems
 
 In BC, the asset model involved static images for every pose that was different from the default pose. This results in exponential multiplication of assets, as separate images are required for:
 * Every body type
@@ -24,7 +24,7 @@ This can lead to single assets requiring hundreds of images, such as the various
 
 BC also has issues with a priority system that is inflexible. While not the primary purpose of selecting the skeleton model, the skeleton does have dynamic priority features that allow for defining simple rules for when certain things like hands ought to be over or under bodyparts.
 
-## Proposed Solutions <a name="proposed"></a>
+## Proposed Solutions
 
 To date, there have been a number of proposed solutions to handle assets in Pandora:
 * Use the BC system (this solves none of the problems above, although improvements can still be made such as an improved layering system and architecture)
@@ -39,11 +39,11 @@ Within the 2d skeleton concept, there are a number of considerations:
 
 This document details a home brewed system created by Ada18980 in an effort to understand the advantages and limitations of a home brewed skeleton system.
 
-## The System Itself <a name="system"></a>
+## The System Itself
 
 (TODO add a flowchart)
 
-### Segments <a name="segments"></a>
+### Segments
 
 A character is made up entirely of BodySegment objects, referred to simply as segments. Each segment has the following core properties:
 * **Name:** The internal handle of the segment
@@ -63,7 +63,7 @@ A character is made up entirely of BodySegment objects, referred to simply as se
 
 The above properties are fairly dense and complex to understand. The most important ones to understand are Position and Rotation.
 
-#### Rotating Segments <a name="rotating"></a>
+#### Rotating Segments
 
 Rather than an absolute angle, segments have a variable known as Extension that basically tracks how extended a body part is from 1 to -1. An extension of 0 means the object is in its default position, 1 means it is at its AngleMax value (defined in the Rotation object), and -1 means it is at AngleMin.
 
@@ -71,7 +71,7 @@ Segments inherit rotation from their parent, and this does not apply to their ex
 
 The parent's rotation also causes the segment to move around. When a segment rotates, all of its children rotate with it, using a recursive matrix transformation in the rendering script. 
 
-### Render and Sorting <a name="render"></a>
+### Render and Sorting
 
 A BodySkeleton object is used to store a number of BodySegments. After adding a number of BodySegments to a skeleton, the skeleton calls assignParents("Torso") to resolve parents, set internal pointers, and set the torso as the primary element of the skeleton.
 
@@ -81,7 +81,7 @@ The other reason why SkeletonContainers are separate from BodySkeleton is to seg
 The `updateExtension()` function updates the entire skeleton tree, setting the locations of segments based on their parents and extension. It also determines whether they are visible or not. Each segment sprite is set within its own container, and then each container has a zIndex which is a PIXI.js variable that allows for dynamic render sorting.
 `updateExtension()` also handles the Hide property.
 
-#### Sorting  <a name="sorting"></a>
+#### Sorting
 
 SkeletonContainer contains a function called `sortRenderOrder()` which is run whenever a change is made to the skeleton. However, sorting every frame may cause framerate drops. It is recommended to flag a change to the skeleton:
 * Every time a pose is added or removed to the skeleton
@@ -94,10 +94,10 @@ The primary way to determine the render order is by adding Priority rules to a s
 * A string determining either which segment is targeted by this rule, or which PriorityTag is targeted. If a PriorityTag is targeted, then it will check the priority rule once for each segment that shares that PriorityTag.
 * A condition. If undefined, the prorityrule always holds. Otherwise, it is a function with the Skeleton as a parameter, and if it is false then the priority rule will be ignored.
 
-### Poses <a name="poses"></a>
+### Poses
 
 The BodySkeleton object has a `PoseTags` field which tracks the current pose tags. Unlike BC, a Pose Tag is not a full pose but are rather flags meant to allow creating priority and hiding rules based on what the body is doing. The `FIST_LEFT` pose, for example, hides the open palm segment and unhides the fist segment. The `BOXTIE` pose segment is used to hide the forearms in the boxtie pose for the side view, as they aren't rendered due to limitations (but an asset maker could easily add a piece that is rendered when the character is boxtied and hidden otherwise).
 
-### Animations <a name="animations"></a>
+### Animations
 
 IN PROGRESS
