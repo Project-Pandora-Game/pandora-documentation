@@ -11,8 +11,9 @@ Repository structure:
     * Documentation ([`Documentation`](https://github.com/Project-Pandora-Game/Documentation))
     * Assets (`pandora-assets`)
     * Template ([`tooling-template`](https://github.com/Project-Pandora-Game/tooling-template)) - changes to linting/configs should be done here and merged to all repos
+    * Common ([`pandora-common`](https://github.com/Project-Pandora-Game/pandora-common)) - things shared across most components, for example socket messages definitions
     * Directory server ([`pandora-server-directory`](https://github.com/Project-Pandora-Game/pandora-server-directory))
-    * Shard server (`pandora-server-shard`)
+    * Shard server ([`pandora-server-shard`](https://github.com/Project-Pandora-Game/pandora-server-shard))
     * Web Client ([`pandora-client-web`](https://github.com/Project-Pandora-Game/pandora-client-web))
     * Bot Client (`pandora-client-bot`)
 * Standards
@@ -25,14 +26,14 @@ Repository structure:
 ### Front end
 
 | Category | Status | Tech/Options | Notes |
-| --- | --- | --- | --- |
+| --- | --- | --- |:--- |
 | Primary Language | Confirmed | [TypeScript](https://www.typescriptlang.org/) | |
 | Build tooling/bundling | Confirmed | [Webpack](https://webpack.js.org/) | |
-| Drawing/rendering library | Likely | [PixiJS](https://www.pixijs.com/), <br/> ~~[Three.js](https://threejs.org/) (probably only for 3D in browser)~~ | Will likely depend on choice of [asset framework](#Asset-Framework)<br/><br/>[A collection of WebGL and WebGPU frameworks and libraries](https://gist.github.com/dmnsgn/76878ba6903cf15789b712464875cfdc) |
+| Drawing/rendering library | Confirmed | [PixiJS](https://www.pixijs.com/) | Will likely depend on choice of [asset framework](#Asset-Framework)<br/><br/>[A collection of WebGL and WebGPU frameworks and libraries](https://gist.github.com/dmnsgn/76878ba6903cf15789b712464875cfdc) |
 | Linting | Confirmed | ESLint | Plugins to consider: <br /> [`@typescript-eslint`](https://www.npmjs.com/package/@typescript-eslint/eslint-plugin) <br /> [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react) <br /> [`eslint-plugin-unicorn`](https://github.com/sindresorhus/eslint-plugin-unicorn) |
-| Unit testing | Yes | [Jest](https://jestjs.io/), [Mocha](https://mochajs.org/) | Libraries to consider: <br/> [Testing Library](https://testing-library.com/) (for DOM/HTML components) |
-| HTML framework | Confirmed | [React](https://reactjs.org/) | |
-| Translation | TBC | ??? | Needs exploration. Potential libraries: <br /> [`i18n`](https://www.npmjs.com/package/i18n) <br /> [`node-gettext`](https://www.npmjs.com/package/node-gettext) (works in browser, despite the name) <br /> [`globalize`](https://www.npmjs.com/package/globalize) <br /> [`node-polyglot`](https://www.npmjs.com/package/node-polyglot) (React HOC also available in [`react-polyglot`](https://www.npmjs.com/package/react-polyglot)) |
+| Unit testing | Confirmed | [Jest](https://jestjs.io/) | Libraries to consider: <br/> [Testing Library](https://testing-library.com/) (for DOM/HTML components) |
+| HTML framework | Confirmed | [React](https://reactjs.org/) | Handles most things if possible before deferring to [PixiJS](https://www.pixijs.com/) |
+| Translation | TBC| ??? | Needs exploration. Potential libraries: <br /> [`i18n`](https://www.npmjs.com/package/i18n) <br /> [`node-gettext`](https://www.npmjs.com/package/node-gettext) (works in browser, despite the name) <br /> [`globalize`](https://www.npmjs.com/package/globalize) <br /> [`node-polyglot`](https://www.npmjs.com/package/node-polyglot) (React HOC also available in [`react-polyglot`](https://www.npmjs.com/package/react-polyglot)) |
 ### Server
 
 | Category | Status | Tech/Options | Notes |
@@ -114,7 +115,9 @@ Options suggested so far:
     * __\-__ Major pose angle changes (e.g. back/front/sides) are still a lot of work
     * __\-__ potential for different drawing/photobashing styles
     * Possible tech:
-        * [DragonBones](http://dragonbones.com/en/index.html#.YQp33FVKhhE)
+        * ~~[DragonBones](http://dragonbones.com/en/index.html#.YQp33FVKhhE)~~ - too old and unmaintained
+        * ~~[Spine](http://esotericsoftware.com/)~~ - paid software, to use meshes we would need full license
+        * In-house
 * Generated 2D views from 3D models
     * __\+__ Lots of flexibility for creating new poses - should be simple to re-generate assets if the base models are checked into the repo
     * __\+__ Using the same rendering engine means consistent look & feel
@@ -124,7 +127,11 @@ Options suggested so far:
         * 3DCG
             * probably a bit outdated/hard to get set up nowadays
             * is in japanese
-        * [Vroid engine](https://vroid.com/en)
+        * ~~[Vroid engine](https://vroid.com/en)~~
+            * **[Bad license terms](https://vroid.com/en/studio/guidelines)**
+                * see: *When creating character making tools*
+                * even stricter: [Article 5.8](https://policies.pixiv.net/en.html#vroidstudio) 
+                * or just no reason at all: [Article 14.28](https://policies.pixiv.net/en.html#terms)
             * easy to set up/is on steam
             * is (mostly) in a native language
             * currently in beta - possibly not fully-featured yet
@@ -240,3 +247,86 @@ Feel free to stick anything here that doesn't fit into a category: ideas, concep
 * Global message warnings before server restart with some state saves
 * Server sharding, so server can restart in steps without downtime
 * Room-based restraints (e.g. big devices like the St. Andrews Cross are attached to rooms, rather than "carried around" by players)
+
+# Development status
+
+This is current development status of the features we want for MVP (minimal viable product); more will be added later.
+
+Explanation of the table:
+- Categories are bold and marked with a \* symbol in front
+- WIP = Someone is actively working on this (at least a bit of work has been done)
+- Ready for review = The feature works fully and is being discussed/improved further
+- Done = The feature is tested, reviewed and released
+- Assignees = People working on this - talk to them about this feature if you want to chip in
+- ★ symbol = It is important to get this feature going as soon as possible
+
+| Step                             | WIP | Ready for review | Done | Assignees |
+| -------------------------------- | --- | ---------------- | ---- | --------- |
+| Environment setup ★ | ✔ | ✔ | ✔ |  |
+| Data verification framework ★ | ✔ |  |  | Sekkmer, Jomshir |
+| Deployment setup |  |  |  |  |
+| Mail server/relay setup | ✔ | ✔ |   | Sekkmer |
+| Captcha |  |  |  |  |
+| * __Unit testing__ |  |  |  |  |
+| Setup ★ | ✔ | ✔ | ✔ | |
+| Back-end unit tests | ✔ | Some | | TechTheAwesome |
+| Front-end unit tests |  | | | |
+| * __Database__ |  |  |  |  |
+| In-memory for testing ★ | ✔ | ✔ | ✔ | Jomshir |
+| MongoDB connection | ✔ | ✔ | ✔ | Sekkmer |
+| Production setup |  |  |  | Sekkmer, Jomshir |
+| * __Cross-server communication__ |  |  |  |  |
+| Shard-Directory connection ★ | ✔ | ✔ | ✔ | Jomshir, Sekkmer |
+| Indirect database access ★ | ✔ |  |  | Sekkmer |
+| Shard registration process ★ | ✔ |  |  | Jomshir |
+| Timeout and reconnect logic |  |  |  | Jomshir |
+| Shard migration for character |  |  |  |  |
+| Shard migration for rooms |  |  |  |  |
+| * __Client-server communication__ |  |  |  |  |
+| Client-Directory connection ★ | ✔ | ✔ | ✔ | Jomshir, Sekkmer |
+| Client-Directory reconnect | ✔ |  |  | Jomshir |
+| Client-Directory timeout logic |  |  |  | Jomshir |
+| Client-Shard connection ★ | ✔ |  |  | Jomshir, Sekkmer |
+| Client-Shard reconnect |  |  |  | Jomshir |
+| Client-Shard timeout logic |  |  |  | Jomshir |
+| Shard switching |  |  |  |  |
+| * __Accounts__ |  |  |  |  |
+| Login ★ | ✔ | ✔ | ✔ |  |
+| Registration | ✔ | ✔ | ✔ |  |
+| Email verification | ✔ | ✔ | ✔ |  |
+| Password reset | ✔ | ✔ | ✔ |  |
+| Friend system |  |  |  |  |
+| DM/Beeps system |  |  |  |  |
+| * __Characters__ |  |  |  |  |
+| Creation |  |  |  | Jomshir, Sekkmer |
+| Selection ★ | ✔ |  |  | Jomshir, Sekkmer |
+| Data loading/saving ★  | ✔ |  |  | Sekkmer |
+| Description / BIO |  |  |  |  |
+| Deletion |  |  |  |  |
+| * __Rooms__ (and room hubs) |  |  |  |  |
+| Creation |  |  |  | Jomshir |
+| Listing |  |  |  | Jomshir |
+| Admin menu |  |  |  |  |
+| Character position in room |  |  |  |  |
+| Allow/Block list |  |  |  |  |
+| Chat |  |  |  |  |
+| * __Assets__ |  |  |  |  |
+| Asset repository ★ |  |  |  |  |
+| Asset definitions ★ | ✔ |  |  | Claudia, Jomshir |
+| Agree on view/perspective ★ | ✔ |  |  |  |
+| Agree on poses ★ | ✔ |  |  |  |
+| Base body ★ | ✔ |  |  | Claudia, Jomshir |
+| Poses system ★ | ✔ |  |  | Claudia, Jomshir |
+| * __Items__ |  |  |  |  |
+| Item creation/spawning ★ |  |  |  |  |
+| Character inventory ★ |  |  |  |  |
+| Room inventory |  |  |  |  |
+| Equiping ★ |  |  |  |  |
+| Transfer between inventories |  |  |  |  |
+| * __Mechanics__ |  |  |  |  |
+| Item blocks (sensible combinations) |  |  |  |  |
+| Item locks |  |  |  |  |
+| Safeword/safety mechanics |  |  |  |  |
+| Lovership |  |  |  |  |
+| Ownership |  |  |  |  |
+| Interaction permissions |  |  |  |  |
