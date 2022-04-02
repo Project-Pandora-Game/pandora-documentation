@@ -1,0 +1,9 @@
+version: "3.9"
+services:
+  pandora-github-runner:
+    image: pandora-github-runner
+    build: .
+    init: true
+    env_file: .env
+    deploy:
+      replicas: 2

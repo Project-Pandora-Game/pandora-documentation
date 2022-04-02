@@ -31,4 +31,4 @@ RUN chmod +x start.sh
 USER docker
 
 # set the entrypoint to the start.sh script
-ENTRYPOINT ["./start.sh"]
+ENTRYPOINT ["/bin/bash", "./start.sh"]

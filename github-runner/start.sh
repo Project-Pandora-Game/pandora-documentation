@@ -1,10 +1,13 @@
 #!/bin/bash
 
+set -ueo pipefail
+
 ORGANIZATION=$ORGANIZATION
 ACCESS_TOKEN=$ACCESS_TOKEN
 SSK_PRIVATE_KEY=$SSK_PRIVATE_KEY
 GITHUB_EMAIL=$GITHUB_EMAIL
 GITHUB_USER=$GITHUB_USER
+_RUNNER_NAME=${RUNNER_NAME:-${RUNNER_NAME_PREFIX:-github-runner}-$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')}
 
 mkdir -p ~/.ssh
 
@@ -34,15 +37,21 @@ fi
 REG_TOKEN=$(curl -sX POST -H "Authorization: token ${ACCESS_TOKEN}" https://api.github.com/orgs/${ORGANIZATION}/actions/runners/registration-token | jq .token --raw-output)
 cd /home/docker/actions-runner
 
-./config.sh --url https://github.com/${ORGANIZATION} --token ${REG_TOKEN}
+echo "Configuring"
+./config.sh \
+	--url https://github.com/${ORGANIZATION} \
+	--token ${REG_TOKEN} \
+	--name "${_RUNNER_NAME}" \
+	--unattended \
+	--replace
 
 cleanup() {
 	echo "Removing runner..."
 	rm -rf ~/.ssh/id_ssh
 	./config.sh remove --token ${REG_TOKEN}
+	exit
 }
 
-trap 'cleanup; exit 130' INT
-trap 'cleanup; exit 143' TERM
+trap cleanup INT TERM SIGINT SIGTERM
 
 ./run.sh & wait $!

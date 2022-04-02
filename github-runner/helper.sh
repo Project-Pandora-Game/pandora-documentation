@@ -44,6 +44,7 @@ function run_image() {
 		--env ACCESS_TOKEN="$ACCESS_TOKEN" \
 		--env GITHUB_EMAIL="$GITHUB_EMAIL" \
 		--env GITHUB_USER="$GITHUB_USER" \
+		--env RUNNER_NAME_PREFIX="${RUNNER_NAME_PREFIX:-github-runner}" \
 		--env ORGANIZATION="$ORGANIZATION" \
 		--env SSK_PRIVATE_KEY="$SSK_PRIVATE_KEY" \
 		--name ${runner_name} \
