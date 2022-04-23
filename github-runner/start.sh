@@ -43,6 +43,7 @@ echo "Configuring"
 	--token ${REG_TOKEN} \
 	--name "${_RUNNER_NAME}" \
 	--unattended \
+	--disableupdate \
 	--replace
 
 cleanup() {
@@ -52,6 +53,6 @@ cleanup() {
 	exit
 }
 
-trap cleanup INT TERM SIGINT SIGTERM
+trap cleanup INT TERM SIGINT SIGTERM EXIT
 
 ./run.sh & wait $!
