@@ -1,5 +1,5 @@
 # base
-FROM node:16-bullseye
+FROM node:18-bullseye
 
 # set the github runner version
 ARG RUNNER_VERSION="2.290.1"
