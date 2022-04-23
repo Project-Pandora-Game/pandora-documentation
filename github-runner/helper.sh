@@ -2,9 +2,13 @@
 
 # https://testdriven.io/blog/github-actions-docker/
 
-IMAGE_NAME="pandora-runner"
+IMAGE_NAME="pandora-github-runner"
 
 ORGANIZATION="Project-Pandora-Game"
+
+if [ -f ".env" ]; then
+	source .env
+fi
 
 if [ -z "${ACCESS_TOKEN}" ]; then
 	echo "ACCESS_TOKEN is not set"
@@ -20,11 +24,11 @@ if [ -z "${GITHUB_USER}" ]; then
 fi
 
 if [ -z "${SSK_PRIVATE_KEY}" ]; then
-	if [ ! -f "./id_ssh" ]; then
-		echo "SSK_PRIVATE_KEY is not set and id_ssh file does not exist"
+	if [ ! -f ".id_ssh" ]; then
+		echo "SSK_PRIVATE_KEY is not set and .id_ssh file does not exist"
 		exit 1
 	fi
-	SSK_PRIVATE_KEY=$(cat ./id_ssh)
+	SSK_PRIVATE_KEY=$(cat .id_ssh)
 fi
 
 function build_image() {
@@ -35,7 +39,7 @@ function build_image() {
 function run_image() {
 	local runner_name="$1"
 	if [ -z "${runner_name}" ]; then
-		runner_name="pandora-runner-$(date +%s)"
+		runner_name="${IMAGE_NAME}-$(date +%s)"
 	fi
 
 	docker run \
