@@ -40,7 +40,7 @@ cd /home/docker/actions-runner
 echo "Configuring"
 ./config.sh \
 	--url https://github.com/${ORGANIZATION} \
-	--token ${REG_TOKEN} \
+	--token "${REG_TOKEN}" \
 	--name "${_RUNNER_NAME}" \
 	--unattended \
 	--disableupdate \
@@ -49,10 +49,10 @@ echo "Configuring"
 cleanup() {
 	echo "Removing runner..."
 	rm -rf ~/.ssh/id_ssh
-	./config.sh remove --token ${REG_TOKEN}
+	./config.sh remove --token "${REG_TOKEN}"
 	exit
 }
 
-trap cleanup INT TERM SIGINT SIGTERM EXIT
+trap cleanup SIGINT SIGQUIT SIGTERM INT TERM QUIT EXIT
 
 ./run.sh & wait $!
