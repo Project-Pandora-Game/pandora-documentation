@@ -6,3 +6,9 @@ services:
     env_file: .env
     deploy:
       replicas: 2
+    volumes:
+      - type: tmpfs
+        target: /home/docker,exec,mode=1777
+        tmpfs:
+          size: 2G
+      - ./cache:/home/docker/.cache:rw

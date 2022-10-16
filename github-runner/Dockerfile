@@ -2,20 +2,27 @@
 FROM node:18-bullseye
 
 # set the github runner version
-ARG RUNNER_VERSION="2.296.2"
+ARG RUNNER_VERSION="2.298.2"
 
-# update the base packages and add a non-sudo user
-RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
+ENV DEBIAN_FRONTEND=noninteractive
 
-# install python and the packages the your code depends on along with jq so we can parse JSON
-# add additional packages as necessary
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
-    curl jq zstd
+# add a non-sudo user
+RUN useradd -m docker
+
+# update then install dependencies, then clean cache
+RUN apt-get update -y \
+	&& apt-get upgrade -y \
+	&& apt-get install -y --no-install-recommends curl jq zstd \
+	&& rm -rf /var/lib/apt/lists/*
+
+# create a working directory, that docker user owns, we cant use /home/docker as will be mounted
+RUN mkdir -p /runner/home/actions-runner && \
+	chown -R docker:docker /runner
 
 # cd into the user directory, download and unzip the github actions runner
-RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
-    && curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
-    && tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
+RUN cd /runner/home/actions-runner \
+	&& curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
+	&& tar xzf ./actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz
 
 # install some additional dependencies
 # RUN chown -R docker ~docker && /home/docker/actions-runner/bin/installdependencies.sh
