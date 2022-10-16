@@ -9,6 +9,12 @@ GITHUB_EMAIL=$GITHUB_EMAIL
 GITHUB_USER=$GITHUB_USER
 _RUNNER_NAME=${RUNNER_NAME:-${RUNNER_NAME_PREFIX:-github-runner}-$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')}
 
+# restore home directory
+cp -r /runner/home/* ~/
+# setup yarn cache
+mkdir -p ~/.cache/yarn
+yarn config set cache-folder ~/.cache/yarn
+
 mkdir -p ~/.ssh
 
 # add ssh private key this
@@ -26,7 +32,7 @@ git config --global user.email "${GITHUB_EMAIL}"
 git config --global user.name "${GITHUB_USER}"
 
 # test the setup
-git ls-remote --tags --heads ssh://git@github.com/Project-Pandora-Game/pandora-common.git
+git ls-remote --tags --heads ssh://git@github.com/Project-Pandora-Game/pandora.git
 if [ $? -eq 0 ]; then
 	echo "GitHub repository exists"
 else
