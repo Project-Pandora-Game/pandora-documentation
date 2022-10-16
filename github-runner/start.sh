@@ -50,7 +50,7 @@ echo "Configuring"
 	--name "${_RUNNER_NAME}" \
 	--unattended \
 	--disableupdate \
-	--replace
+	--replace || true
 
 cleanup() {
 	echo "Removing runner..."
