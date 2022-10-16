@@ -12,14 +12,6 @@ RUN apt-get update -y && apt-get upgrade -y && useradd -m docker
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
 	curl jq zstd build-essential
 
-# Get Rust
-RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
-ENV PATH="/root/.cargo/bin:${PATH}"
-
-# Get wasm dependencies
-RUN rustup target add wasm32-unknown-unknown
-RUN cargo install wasm-pack
-
 # cd into the user directory, download and unzip the github actions runner
 RUN cd /home/docker && mkdir actions-runner && cd actions-runner \
 	&& curl -O -L https://github.com/actions/runner/releases/download/v${RUNNER_VERSION}/actions-runner-linux-x64-${RUNNER_VERSION}.tar.gz \
@@ -37,6 +29,14 @@ RUN chmod +x start.sh
 # since the config and run script for actions are not allowed to be run by root,
 # set the user to "docker" so all subsequent commands are run as the docker user
 USER docker
+
+# Get Rust
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+ENV PATH="/home/docker/.cargo/bin:${PATH}"
+
+# Get wasm dependencies
+RUN rustup target add wasm32-unknown-unknown
+RUN cargo install wasm-pack
 
 # set the entrypoint to the start.sh script
 ENTRYPOINT ["/bin/bash", "./start.sh"]
