@@ -12,7 +12,7 @@ RUN useradd -m docker
 # update then install dependencies, then clean cache
 RUN apt-get update -y \
 	&& apt-get upgrade -y \
-	&& apt-get install -y --no-install-recommends curl jq zstd \
+	&& apt-get install -y --no-install-recommends curl jq zstd build-essential \
 	&& rm -rf /var/lib/apt/lists/*
 
 # create a working directory, that docker user owns, we cant use /home/docker as will be mounted
@@ -36,6 +36,14 @@ RUN chmod +x start.sh
 # since the config and run script for actions are not allowed to be run by root,
 # set the user to "docker" so all subsequent commands are run as the docker user
 USER docker
+
+# Get Rust
+RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+ENV PATH="/home/docker/.cargo/bin:${PATH}"
+
+# Get wasm dependencies
+RUN rustup target add wasm32-unknown-unknown
+RUN cargo install wasm-pack
 
 # set the entrypoint to the start.sh script
 ENTRYPOINT ["/bin/bash", "./start.sh"]
