@@ -355,8 +355,12 @@ The tab view will immediately switch to the asset-tab with your new item loaded,
 Please be aware that your asset is not saved in the editor, as the editor resets when it reloads or refreshes. Please make sure to
 export the asset you are making regularly and overwrite the `graphics.json` of the new asset with the one from the exported package, ~~unless you started the editor in the 'Load Assets From File System' mode~~ [Work In Progress - doesn't autosave yet].
 
-NOTE: For now, when making images for your own assets, please make sure they are all in the size 1000 x 1500 pixels, as the editor will then overlap 
+## Making the asset images
+
+For now, when making images for your own assets, please make sure they are all in the size 1000 x 1500 pixels, as the editor will then overlap 
 them perfectly to other layers as well as onto the body. Also think of making a front view and a back view of your asset, if that is needed.
+
+You can download a [set of body templates for different breast sizes on Discord](https://discord.com/channels/872284471611760720/873309624441401404/1019125393774620692). Alternatively, you can simply download the character as image to draw over yourself. There is a black download button above the character view in the editor for that.
 
 # Advanced topics
 
