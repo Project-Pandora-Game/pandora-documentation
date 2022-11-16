@@ -101,7 +101,10 @@ git submodule update --init --recursive
 
 ## Starting a test server locally
 
-Now that's a bit of a hassle, but in the end, we will make it together. Start 5 (yes five) console windows (Terminal on MacOs, cmd.exe on Windows). Then move to the following directories, `base` being the one that holds your repositories
+Now that's a bit of a hassle, but in the end, we will make it together. 
+
+### Things you have to do only for the very first time
+Start 5 (yes five) console windows (Terminal on MacOs, cmd.exe on Windows). Then move to the following directories, `base` being the one that holds your repositories
 ```
 cd base/pandora
 cd base/pandora/pandora-common
@@ -126,17 +129,30 @@ yarn
 Then change to the `pandora-common`sub-directory and run
 ```
 yarn link
+```
+Change to the window with the `pandora-assets` directoy and run
+```
+yarn
+yarn link "pandora-common"
+```
+After those initial steps you can proceed with actually starting the various components.
+
+### Things to do every time
+Go to the `pandora-common` directory and run
+```
 yarn dev
 ```
-Do the same in all other directories except the `pandora/pandora-server-shard` one
-Strange signs will pop up now in each and every window, but don't be afraid, that's actually a good sign.
 Wait until you read something like
 ```
 Found 0 errors. Watching for file changes.
 ```
-In all of the windows. If a browser pops up in the meantime, showing the start page of project Pandora, that's a good sign es well. But don't get too excited, we're not done yet. Remember the one directory, we neglected? `pandora/pandora-server-shard`? Exactly. Now it is the time for it to shine. Execute
+Then run in all other directories,  except the `pandora/pandora-server-shard` one,
 ```
-yarn link
+yarn dev
+```
+Strange signs will pop up now in each and every window, but don't be afraid, that's actually a good sign.
+If a browser pops up in the meantime, showing the start page of project Pandora, that's a good sign es well. But don't get too excited, we're not done yet. Remember the one directory, we neglected? `pandora/pandora-server-shard`? Exactly. Now it is the time for it to shine. Execute
+```
 yarn dev
 ```
 in that directory as well, and you're ready to go.
