@@ -15,6 +15,9 @@ RUN apt-get update -y \
 	&& apt-get install -y --no-install-recommends curl jq zstd build-essential \
 	&& rm -rf /var/lib/apt/lists/*
 
+RUN corepack enable
+RUN pnpm
+
 # create a working directory, that docker user owns, we cant use /home/docker as will be mounted
 RUN mkdir -p /runner/home/actions-runner && \
 	chown -R docker:docker /runner
