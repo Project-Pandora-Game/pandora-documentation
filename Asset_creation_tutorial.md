@@ -96,13 +96,13 @@ _Recommendation: During some steps it will ask you to select editor, if you did 
 ```
 node --version
 ```
-- Enable corepack (this makes `yarn` available)
+- Enable corepack (this makes `pnpm` available)
 ```
 corepack enable
 ```
-- Verify yarn is available (expected output: The version of yarn as `1.x.x`)
+- Verify pnpm is available (expected output: The version of pnpm as `7.x.x`)
 ```
-yarn --version
+pnpm --version
 ```
 You can now close the administrator command prompt - you won't need it anymore
 
@@ -126,17 +126,17 @@ git clone --recursive git@github.com:Project-Pandora-Game/pandora-assets.git
 ```
 cd pandora-assets
 ```
-- Run `yarn` to take care of the rest:
+- Run `pnpm i` (short for `install`) to take care of the rest:
 ```
-yarn
+pnpm i
 ```
 
 ### Common errors
 If you get error along the lines of:
 ```
-error Package "pandora-common" refers to a non-existing file ...
+ENOENT: no such file or directory, scandir '[...]/pandora-assets/pandora/pandora-common'
 ```
-Then run the following command before trying to run `yarn` again:
+Then run the following command before trying to run `pnpm i` again:
 ```
 git submodule update --init --recursive
 ```
@@ -145,7 +145,7 @@ git submodule update --init --recursive
 
 After finishing all previous steps, you can always open a command prompt in `pandora-assets` repository and start the development server using the following command:
 ```
-yarn dev
+pnpm dev
 ```
 If everything worked, you should see that it builds assets, ending with the following two lines:
 ```
