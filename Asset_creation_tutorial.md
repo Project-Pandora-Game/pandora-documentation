@@ -65,34 +65,62 @@ Each layer defines its image file, points, draw priority (order of images being 
 
 # Development tools installation
 
-While for the graphics part of asset creation process you don't need any tools except the Pandora's graphics editor, currently there are limitations as Pandora is early in development, making creation of assets slightly harder. We expect the asset creation to become easier as more development will be done and more features become stable, not changing as frequently.
+While the graphics part of the asset creation process does not require any tools except Pandora's graphics editor, currently there are limitations as Pandora is early in development, making creation of assets slightly harder. We expect the asset creation to become easier as more development will be done and more features become stable, not changing as frequently.
 
 Feel free to ask on [our Discord](https://discord.gg/EnaPvuQf8d) for help with this process. It is even possible to find someone to help you with the code parts while creating only graphics yourself. This tutorial will assume you will be doing both parts of the asset.
 
-Right now, for creating your asset (from nothing to PR) you will need the following tools:
-- [Git](https://git-scm.com/downloads) - for both cloning needed repositories and contributing your asset
-- [Node.js (version 18.x - LTS)](https://nodejs.org/en/download/)
-- \[strongly recommended\] [Visual Studio Code](https://code.visualstudio.com/download)
+For creating your asset (from nothing to PR) you will need the following tools:
+- [Visual Studio Code](https://code.visualstudio.com/download) - The editor used to write logic in.
+	- *Note: While not strictly necessary, this tutorial expects you to use VSCode. If you are experienced with JavaScript development you can skip it and look at the manual instruction at the end of this section.*
+- [Git](https://git-scm.com/downloads) - For both cloning the needed repositories and contributing your asset
+- [Node.js (version 18.x - LTS)](https://nodejs.org/en/download/) - Runtime for running JavaScript code outside of a browser - necessary for all the tools
+  - Alternative: If you known what you are doing and what the benefits and drawbacks are, you can install `pnpm` yourself, without the use of corepack.
 
 ## Initial setup
 
 The following steps have to be done only once to setup your development and test environment.
 
-### Install Visual Studio Code (optional, but strongly recommended)
+### Install Visual Studio Code
 
-Not much to say here, it has an installer - click through it.
+- Download it here: https://code.visualstudio.com/download
+- Run the downloaded installer
+- Click "Next >" all the way
 
 ### Install Git
 
-It also has an installer and not much more is needed.
-
-_Recommendation: During some steps it will ask you to select editor, if you did install VSCode before this step, I recommend selecting it as Git editor so you don't have to learn using any other tools._
+- Download it here: https://git-scm.com/downloads (for Windows use "64-bit Git for Windows Setup.")
+- Run the downloaded installer
+- "Information" -> Next
+- "Select Destination Location" -> Next
+- "Select Components" -> [recommended] Enable "Check daily for Git for Windows updates" (it may somtimes show you a prompt where you click Yes to update) -> Next
+- "Select Start Menu Folder" -> Next
+- "Choosing the default editor used by Git" -> Select "Use Visual Studio Code" -> Next
+- "Adjusting name of initial branch ..." -> Next
+- "Adjusting your PATH environment" -> [important] **keep recommended option** -> Next
+- "Choosing SSH executable" -> Next
+- "Choosing HTTPS transport backend" -> Next
+- "Configuring the line ending coversions" -> [important] **Change to** "Checkout as-is, commit as-is" (otherwise you will get a lot of warnings) -> Next
+- "Configuring the terminal ..." -> Next
+- "Choose the default behaviour of `git pull`" -> [recommended] Select "Rebase" (makes it easier to work on a single branch cooperatively) -> Next
+- "Choose credential helper" -> Next
+- "Extra configuration options" -> Next
+- "Experimental options" -> Next
+- Install
 
 ### Install Node.js and enable corepack
 
-- First install [Node.js (version 18.x - LTS)](https://nodejs.org/en/download/).
-- After installing it open the command prompt **as administrator**.
-- Use the following command to verify Node.js was installed correctly: (expected output: The version you installed)
+- Download it here: https://nodejs.org/en/download/ (for Windows use ".msi" installer)
+- Run the downloaded installer
+- Click "Next >" all the way, keeping the defaults
+
+- After installing it, open the Windows PowerShell **as administrator**. (search for "powershell", right-click, "Run as administrator")
+  - Yes, if you are on Windows you **must** do this in PowerShell, doing it in cmd won't work
+  - If you are not on Windows, skip the next step, but
+- Allow running of scripts
+```
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
+```
+- Use the following command to verify Node.js was installed correctly: (expected output: `v18.x.x`)
 ```
 node --version
 ```
@@ -104,62 +132,60 @@ corepack enable
 ```
 pnpm --version
 ```
-You can now close the administrator command prompt - you won't need it anymore
+- You can now close the administrator command prompt
 
-### Setup Git SSH key
+### Cloning the asset repository and initial setup
 
-**This step is needed only because the project is private at the moment**
-
-_Note: If you are closely familiar with how SSH keys work and how to checkout git submodules, you can skip this section_
-
-For this follow the following [GitHub tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
-
-### Cloning the asset repository
-
-First create the empty folder you will use for Pandora. Then open a command prompt inside this folder.
-
-- Use the following command to clone the assets repository:
+- Open Visual Studio Code (restart it if you had it open)
+- On the left panel select third icon (Source Control)
+- If you see "Install Git, a popular ...", close VSCode and open it again
+- Copy the following link:
 ```
-git clone --recursive git@github.com:Project-Pandora-Game/pandora-assets.git
+https://github.com/Project-Pandora-Game/pandora-assets.git
 ```
-- Then enter the folder using the following command:
-```
-cd pandora-assets
-```
-- Run `pnpm i` (short for `install`) to take care of the rest:
-```
-pnpm i
-```
-
-### Common errors
-If you get error along the lines of:
-```
-ENOENT: no such file or directory, scandir '[...]/pandora-assets/pandora/pandora-common'
-```
-Then run the following command before trying to run `pnpm i` again:
-```
-git submodule update --init --recursive
-```
+- Press clone repository, paste it and press enter. Select any **empty** directory where you want to store your Pandora projects
+- You will get a prompt to login to GitHub, do so
+- Wait for it to finish and select "Open"
+- On the bottom right you will get a prompt, select "Install"
+- You might get asked to confirm trust, select "Trust" or "Trust & Install" or "Trust & Enable"
+- On the bottom, a terminal should open, performing the remaining setup automatically. Wait for it to finish (it will close automatically when done)
 
 ## Running the local asset server
 
-After finishing all previous steps, you can always open a command prompt in `pandora-assets` repository and start the development server using the following command:
-```
-pnpm dev
-```
+After finishing all previous steps, you can always open `pandora-assets` in VSCode and start the local asset server by pressing "F5"
+
 If everything worked, you should see that it builds assets, ending with the following two lines:
 ```
 [Main] Done!
 [Watch] Waiting for changes...
 ```
 
-You can stop the server by pressing `Ctrl+C` on your keyboard (same as copying something), with the command window focused.
+You can stop the server by either closing the window or pressing the red "Disconnect" button on a pane that showed up
 
-The server will always be up to date with all changes you do, **except when you CREATE a new `.ts` file or DELETE an existing `.ts` file** - due to a (not our) bug you will need to stop the dev server and start it again.
+The server will always be up to date with all changes you do, **except when you CREATE a new `.ts` file or DELETE an existing `.ts` file** - due to a bug (not our bug) you will need to stop the dev server and start it again.
 
-It will also check for any errors and tell you about them.
+It will also check for any errors and report them to you.
 
-Later, there will also be support for directly uploading your asset for testing to the testing server, however this functionality is not yet ready.
+Later, there will also be support for directly uploading your asset for testing to the testing server. However, this functionality is not yet ready.
+
+## Running without VSCode (__skip if you used VSCode__)
+
+One-time setup:
+- Make sure Git, NodeJS v18 and pnpm are in path
+- Clone either recursively or after cloning run:
+```
+git submodule update --init --recursive
+```
+- Open terminal in `pandora-assets` folder and run:
+```
+pnpm i
+```
+
+Running dev server:
+- Run:
+```
+pnpm dev
+```
 
 # Understanding the code behind assets
 
