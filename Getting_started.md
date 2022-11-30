@@ -40,14 +40,6 @@ It also has an installer and not much more is needed.
 
 _Recommendation: During some steps it will ask you to select editor, if you did install VSCode before this step, I recommend selecting it as Git editor so you don't have to learn using any other tools._
 
-<ins>**Setup Git SSH key**</ins>
-
-**This step is needed only because the project is private at the moment**
-
-_Note: If you are closely familiar with how SSH keys work and how to checkout git submodules, you can skip this section_
-
-For this follow the following [GitHub tutorial](https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
-
 <ins>**Install Node.js and enable corepack**</ins>
 
 - First install [Node.js (version 18.x - LTS)](https://nodejs.org/en/download/).
@@ -115,6 +107,7 @@ pnpm i
 ```
 Change to the window with the `pandora-assets` directory and run
 ```
+pnpm i
 pnpm link ../pandora/pandora-common
 ```
 After those initial steps you can proceed with actually starting the various components.
