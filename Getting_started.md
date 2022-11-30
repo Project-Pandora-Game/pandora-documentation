@@ -84,7 +84,7 @@ git clone --recursive git@github.com:Project-Pandora-Game/Documentation.git
 ```
 cd pandora-assets
 ```
-- Run `pnpm` to take care of the rest:
+- Run `pnpm i` to take care of the rest:
 ```
 pnpm i
 ```
@@ -94,7 +94,7 @@ If you get an error along the lines of:
 ```
 error Package "pandora-common" refers to a non-existing file ...
 ```
-Then run the following command before trying to run `pnom` again:
+Then run the following command before trying to run `pnpm i` again:
 ```
 git submodule update --init --recursive
 ```
@@ -109,25 +109,13 @@ Start 2 console windows (Terminal on MacOs, cmd.exe on Windows). Then move to th
 cd base/pandora
 cd base/pandora-assets
 ```
-Or 
-```
-cd base\pandora
-cd base\pandora-assets
-```
-if you're on Windows.
-
 In the terminal with the `pandora` directory run
 ```
-pnpm
+pnpm i
 ```
-Then change to the `pandora-common`sub-directory and run
+Change to the window with the `pandora-assets` directory and run
 ```
-pnpm link
-```
-Change to the window with the `pandora-assets` directoy and run
-```
-pnpm
-pnpm link "pandora-common"
+pnpm link ../pandora/pandora-common
 ```
 After those initial steps you can proceed with actually starting the various components.
 
@@ -145,7 +133,7 @@ Then run the same command in `pandora-assets`:
 pnpm dev
 ```
 Strange signs will pop up now in each and every window, but don't be afraid, that's actually a good sign.
-If a browser pops up in the meantime, showing the start page of project Pandora, that's a good sign es well. And you're ready to go.
+If a browser pops up in the meantime, showing the start page of project Pandora, that's a good sign as well. And you're ready to go.
 
 When you create your first account, you will be asked for an e-mail address. But as you did not configure an e-mail server, instead you will have to copy the verification code from the terminal windows of the pandora server. Scroll a bit until you see
 ```
