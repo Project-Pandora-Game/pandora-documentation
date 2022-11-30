@@ -56,13 +56,13 @@ For this follow the following [GitHub tutorial](https://docs.github.com/en/authe
 ```
 node --version
 ```
-- Enable corepack (this makes `yarn` available)
+- Enable corepack (this makes `pnpm` available)
 ```
 corepack enable
 ```
-- Verify that yarn is available (expected output: The version of yarn as `1.x.x`)
+- Verify that pnpm is available (expected output: The version of pnpm as `7.17.x`)
 ```
-yarn --version
+pnpm --version
 ```
 You can now close the administrator command prompt - you won't need it anymore
 
@@ -84,9 +84,9 @@ git clone --recursive git@github.com:Project-Pandora-Game/Documentation.git
 ```
 cd pandora-assets
 ```
-- Run `yarn` to take care of the rest:
+- Run `pnpm` to take care of the rest:
 ```
-yarn
+pnpm i
 ```
 - Repeat this for the other folder(s)
 
@@ -94,7 +94,7 @@ If you get an error along the lines of:
 ```
 error Package "pandora-common" refers to a non-existing file ...
 ```
-Then run the following command before trying to run `yarn` again:
+Then run the following command before trying to run `pnom` again:
 ```
 git submodule update --init --recursive
 ```
@@ -104,60 +104,50 @@ git submodule update --init --recursive
 Now that's a bit of a hassle, but in the end, we will make it together. 
 
 ### Things you have to do only for the very first time
-Start 5 (yes five) console windows (Terminal on MacOs, cmd.exe on Windows). Then move to the following directories, `base` being the one that holds your repositories
+Start 2 console windows (Terminal on MacOs, cmd.exe on Windows). Then move to the following directories, `base` being the one that holds your repositories
 ```
 cd base/pandora
-cd base/pandora/pandora-common
-cd base/pandora/pandora-client-web
-cd base/pandora/pandora-server-shard
-cd base/pandor-assets
+cd base/pandora-assets
 ```
 Or 
 ```
 cd base\pandora
-cd base\pandora\pandora-common
-cd base\pandora\pandora-client-web
-cd base\pandora\pandora-server-shard
 cd base\pandora-assets
 ```
 if you're on Windows.
 
 In the terminal with the `pandora` directory run
 ```
-yarn
+pnpm
 ```
 Then change to the `pandora-common`sub-directory and run
 ```
-yarn link
+pnpm link
 ```
 Change to the window with the `pandora-assets` directoy and run
 ```
-yarn
-yarn link "pandora-common"
+pnpm
+pnpm link "pandora-common"
 ```
 After those initial steps you can proceed with actually starting the various components.
 
 ### Things to do every time
-Go to the `pandora-common` directory and run
+Go to the `pandora` directory and run
 ```
-yarn dev
+pnpm dev
 ```
 Wait until you read something like
 ```
-Found 0 errors. Watching for file changes.
+Scope: 4 of 5 workspace projects
 ```
-Then run in all other directories,  except the `pandora/pandora-server-shard` one,
+Then run the same command in `pandora-assets`:
 ```
-yarn dev
+pnpm dev
 ```
 Strange signs will pop up now in each and every window, but don't be afraid, that's actually a good sign.
-If a browser pops up in the meantime, showing the start page of project Pandora, that's a good sign es well. But don't get too excited, we're not done yet. Remember the one directory, we neglected? `pandora/pandora-server-shard`? Exactly. Now it is the time for it to shine. Execute
-```
-yarn dev
-```
-in that directory as well, and you're ready to go.
+If a browser pops up in the meantime, showing the start page of project Pandora, that's a good sign es well. And you're ready to go.
 
-When you create your first account, you will be asked for an em-ail address. But as you did not configure an e-mail address, instead you will have to copy the verification code from the terminal windows of the pandora server. Scroll a bit until you see
+When you create your first account, you will be asked for an e-mail address. But as you did not configure an e-mail server, instead you will have to copy the verification code from the terminal windows of the pandora server. Scroll a bit until you see
 ```
 email: 'sFy9bt4PY95+T9UjwMGkgYKBT3qNdVVfAq+NuZNPQsc='
 username: 'some name'
