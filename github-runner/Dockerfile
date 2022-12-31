@@ -2,18 +2,20 @@
 FROM node:18-bullseye
 
 # set the github runner version
-ARG RUNNER_VERSION="2.298.2"
+ARG RUNNER_VERSION="2.300.2"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
 # add a non-sudo user
 RUN useradd -m docker
 
-# update then install dependencies, then clean cache
+# update then install dependencies, then clean cache, add build-essential for rust
 RUN apt-get update -y \
 	&& apt-get upgrade -y \
-	&& apt-get install -y --no-install-recommends curl jq zstd build-essential \
+	&& apt-get install -y --no-install-recommends curl jq zstd \
 	&& rm -rf /var/lib/apt/lists/*
+
+RUN corepack enable
 
 # create a working directory, that docker user owns, we cant use /home/docker as will be mounted
 RUN mkdir -p /runner/home/actions-runner && \
@@ -38,12 +40,12 @@ RUN chmod +x start.sh
 USER docker
 
 # Get Rust
-RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
-ENV PATH="/home/docker/.cargo/bin:${PATH}"
+#RUN curl https://sh.rustup.rs -sSf | bash -s -- -y
+#ENV PATH="/home/docker/.cargo/bin:${PATH}"
 
 # Get wasm dependencies
-RUN rustup target add wasm32-unknown-unknown
-RUN cargo install wasm-pack
+#RUN rustup target add wasm32-unknown-unknown
+#RUN cargo install wasm-pack
 
 # set the entrypoint to the start.sh script
 ENTRYPOINT ["/bin/bash", "./start.sh"]
