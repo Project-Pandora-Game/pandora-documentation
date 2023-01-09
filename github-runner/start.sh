@@ -30,6 +30,7 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 # setup git config
 git config --global user.email "${GITHUB_EMAIL}"
 git config --global user.name "${GITHUB_USER}"
+git config --global submodule.pandora.url "git@github.com:Project-Pandora-Game/pandora.git"
 
 # test the setup
 git ls-remote --tags --heads ssh://git@github.com/Project-Pandora-Game/pandora.git
