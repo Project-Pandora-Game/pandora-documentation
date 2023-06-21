@@ -360,7 +360,15 @@ In addition, both layers use the feature 'Select image based on value of a bone'
 This is used here to override the image of the t-shirt with the flat variant (also used by the back view layers), for just the breast bone
 stop point 'small', which means that this override is used also for the breast stop point 'flat'.
 
-Hint: For a more complex example on this topic, have a look at the `dresses/maid_dress` asset.
+Hint: For a more complex example on this topic, have a look at the `dresses/maid_dress` asset. It for instance shows that your overrides can use more
+complex conditions which chain statements with an `&` (and) or `|` (or), like so:
+```
+m_skirtState=up&backView=0 maid_f_skirt_up_l2.png
+```
+You can also combine this with bone values to make overrides pose dependant, e.g.
+```
+m_cuffState=normal&leg_r>=0 cuffs_closed.png
+```
 
 # Creating your first asset
 
