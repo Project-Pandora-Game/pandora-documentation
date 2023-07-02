@@ -389,12 +389,15 @@ The tab view will immediately switch to the asset-tab with your new item loaded,
 Please be aware that your asset is not saved in the editor, as the editor resets when it reloads or refreshes. Please make sure to
 export the asset you are making regularly and overwrite the `graphics.json` of the new asset with the one from the exported package, ~~unless you started the editor in the 'Load Assets From File System' mode~~ [Work In Progress - doesn't autosave yet].
 
+Hint: An alternative way to make your asset, and the potentially easier way when you are new to the process, is to edit an existing asset in the editor that is very similar to what you want to make. Basically, you look for an asset under the "Items"-tab that has a similar amount of layers and images and potentially similar modules and start editing it. In the most ideal case you just have to replace the images and export the graphics.json for usage in your new asset. More realistically, you may need to do more changes, but it may still be the fastest way to make your new asset, especially as you get more experience. 
+
 ## Making the asset images
 
 For now, when making images for your own assets, please make sure they are all in the size 1000 x 1500 pixels, as the editor will then overlap 
-them perfectly to other layers as well as onto the body. Also think of making a front view and a back view of your asset, if that is needed.
+them perfectly to other layers as well as onto the body. Also remember to make a front view and a back view of your asset, if that is needed.
 
-You can download a [set of body templates for different breast sizes on Discord](https://discord.com/channels/872284471611760720/873309624441401404/1019125393774620692). Alternatively, you can simply download the character as image to draw over yourself. There is a black download button above the character view in the editor for that.
+If your asset as for a female body and covers the breasts, you likely need to make several sized variants for the front view layer that covers the breasts. For this purpose, you can download a [set of body templates for different breast sizes on GitHub](https://github.com/Project-Pandora-Game/Documentation/tree/master/asset_creation/templates/). Note the `readme.txt` in the body-sub-folder. 
+Alternatively, you can simply download the character preview with the chosen pose in the editor as image to draw over yourself. There is a black download button above the character view in the editor for that. Please keep the body slider values at default level before drawing over such an image or your asset images will not fit in-game.
 
 # Advanced topics
 
