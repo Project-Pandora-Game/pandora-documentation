@@ -225,9 +225,9 @@ For the sake of this tutorial, we will assume you will pick the second button.
 The asset editor screen itself consists of three tabs in the default configuration. From left to right:
 - the items tab - used for equipping and editing assets (editing an asset changes the tab to the layer management tab)
 - the layer tab - which is currently empty as you there is no layer selected in the layer management tab
-- a view of the character model after transformations by changing poses (in the poses tab) - used for checking how the chaarcter would look in-game
+- a view of the character model after transformations by changing poses (in the poses tab) - used for checking how the character would look in-game
 
-Navigation is done via the top bar in each tab, where you can create a new tab, close one or change the contents the tab shall show. **Please make extensive use of the (?) buttons that give you contextual help about most elements.**
+Navigation is done via the top bar in each tab, where you can create a new tab, close one or change the contents the tab shall show to customize the editor to your preferred work flow. You can switch what any tab shows at any time without losing the progress in those tabs. **Please make extensive use of the (?) buttons that give you contextual help about most elements.**
 
 In the following sections, all available commons tabs will be explained briefly.
 
@@ -274,6 +274,10 @@ This is as simple as an asset can be. Let's look at another important tab.
 ### The "Poses" tab
 
 The "Poses"-tab enables you to manipulate the pose of the editor character from the preview-tab. 
+
+### The "Wardrobe" tab
+
+The "Wardrobe"-tab acts like the in-game wardrobe and lets you for instance use asset modules or quickly add random clothes onto your character for testing. 
 
 # Looking at more advanced assets
 
@@ -396,8 +400,16 @@ Hint: An alternative way to make your asset, and the potentially easier way when
 For now, when making images for your own assets, please make sure they are all in the size 1000 x 1500 pixels, as the editor will then overlap 
 them perfectly to other layers as well as onto the body. Also remember to make a front view and a back view of your asset, if that is needed.
 
-If your asset as for a female body and covers the breasts, you likely need to make several sized variants for the front view layer that covers the breasts. For this purpose, you can download a [set of body templates for different breast sizes on GitHub](https://github.com/Project-Pandora-Game/Documentation/tree/master/asset_creation/templates/). Note the `readme.txt` in the body-sub-folder. 
+If your asset is for a female body and covers the breasts, you likely need to make several sized variants for the front view layer that covers the breasts. For this purpose, you can download a [set of body templates for different breast sizes on GitHub](https://github.com/Project-Pandora-Game/Documentation/tree/master/asset_creation/templates/). Note the `readme.txt` in the body-sub-folder. 
 Alternatively, you can simply download the character preview with the chosen pose in the editor as image to draw over yourself. There is a black download button above the character view in the editor for that. Please keep the body slider values at default level before drawing over such an image or your asset images will not fit in-game.
+
+To dive a bit more into the topic of how many images you likely need:
+
+- 1 image for things like a hair flower, which needs no dedicated back view as the item is only on the front side of the body (`ABOVE_BODY` layer) and is half visible from behind.
+- 2 images for something like a hat or skirt that is covering both the front and back side of the head (`ABOVE_BODY` as well as `BELOW_BODY` layer). If the asset looks exactly the same from both sides, then you could even use the same image for both asset layers and only need to make one image.
+- 6-7 images for something like a bra: one image for the back side of the body (`BELOW_BODY` layer) and 5 images (or one more for the flat variant) for the breast sizes small, medium, large, huge, and extreme, covering the bust above and below  (`BREASTS` [Note: If you are making something like a corset or tight top that is covering more parts of the body than only the breasts, use the `ABOVE_BODY` layer instead of the `BREASTS` one.] and the same five images reused again on the `BELOW_BREASTS` layer to cover them from the back view, too)
+
+Hint: It is likely extremely helpful to go look up existing (similar) assets to the one you want to make. You can simply load it in the editor and start editing it so you can see how it was done. In many cases you just need to do some small changes, like exchanging image files and renaming things, but can otherwise completely reuse the existing definitions and code. Even advanced features outside the asset editor, like modules, can mostly be copied and reused from the code of existing examples with only minor changes. 
 
 # Advanced topics
 
