@@ -1,8 +1,8 @@
 # base
-FROM node:18-bullseye
+FROM node:20-bullseye
 
 # set the github runner version
-ARG RUNNER_VERSION="2.314.1"
+ARG RUNNER_VERSION="2.315.0"
 
 ENV DEBIAN_FRONTEND=noninteractive
 

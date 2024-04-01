@@ -5,7 +5,8 @@ services:
     build: .
     env_file: .env
     deploy:
-      replicas: 2
+      replicas: 4
+    restart: unless-stopped
     volumes:
       - type: tmpfs
         target: /home/docker,exec,mode=1777
