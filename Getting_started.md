@@ -1,17 +1,17 @@
+# Getting started with Pandora
+
+This is the first try to write and easy to understand guide of what needs to be done aimed at code developers wanting to get their local environment set up, so you can contribute to the Pandora project. 
+
+Feel free to ask on [our Discord](https://discord.gg/EnaPvuQf8d) for help with this process. It is even possible to find someone to help you with the code parts yourself.
+
 # Asset creation
 
-> :warning: Is asset creation all you are planning to do? This tutorial is not aimed at you!
+:warning: Is asset creation all you are planning to do? This tutorial is not aimed at you!
 
 **If you are only planning to do asset contributions, please follow the [Asset Creation Tutorial](./asset_creation/Asset_creation_tutorial.md).**
 
-It has steps tailored specifically for asset creators and less tech-savvy contributors to get the simplest setup necessary for contributing only assets.
+Asset Creation Tutorial has steps tailored specifically for asset creators and less tech-savvy contributors to get the simplest setup necessary for contributing only assets.
 This document is aimed at code developers.
-
-# Getting started with Pandora
-
-This is the first try to write an easy to understand guide of what needs to be done, if you want to get your local environment set up, so you can contribute to the Pandora project. 
-
-Feel free to ask on [our Discord](https://discord.gg/EnaPvuQf8d) for help with this process. It is even possible to find someone to help you with the code parts yourself.
 
 # What you need
 
