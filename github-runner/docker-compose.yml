@@ -1,4 +1,3 @@
-version: "3.9"
 services:
   pandora-github-runner:
     image: pandora-github-runner
