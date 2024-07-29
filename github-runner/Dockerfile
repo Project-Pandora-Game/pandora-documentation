@@ -2,7 +2,7 @@
 FROM node:20-bullseye
 
 # set the github runner version
-ARG RUNNER_VERSION="2.317.0"
+ARG RUNNER_VERSION="2.318.0"
 
 ENV DEBIAN_FRONTEND=noninteractive
 
