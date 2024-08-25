@@ -1,5 +1,3 @@
-[![hackmd-github-sync-badge](https://hackmd.io/jUhzIyWHQOOC0E9gd2kuCw/badge)](https://hackmd.io/jUhzIyWHQOOC0E9gd2kuCw)
-
 # Project Pandora
 
 For collaborators unfamiliar with Markdown (the formatting syntax used in this document), see [this summary of Markdown syntax](https://www.markdownguide.org/basic-syntax/) to learn how to format things.
