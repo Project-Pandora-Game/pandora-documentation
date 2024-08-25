@@ -92,16 +92,16 @@ The following steps have to be done only once to setup your development and test
 - Run the downloaded installer
 - "Information" -> Next
 - "Select Destination Location" -> Next
-- "Select Components" -> [recommended] Enable "Check daily for Git for Windows updates" (it may somtimes show you a prompt where you click Yes to update) -> Next
+- "Select Components" -> [recommended] Enable "Check daily for Git for Windows updates" (it may sometimes show you a prompt where you click Yes to update) -> Next
 - "Select Start Menu Folder" -> Next
 - "Choosing the default editor used by Git" -> Select "Use Visual Studio Code" -> Next
 - "Adjusting name of initial branch ..." -> Next
 - "Adjusting your PATH environment" -> [important] **keep recommended option** -> Next
 - "Choosing SSH executable" -> Next
 - "Choosing HTTPS transport backend" -> Next
-- "Configuring the line ending coversions" -> [important] **Change to** "Checkout as-is, commit as-is" (otherwise you will get a lot of warnings) -> Next
+- "Configuring the line ending conversions" -> [important] **Change to** "Checkout as-is, commit as-is" (otherwise you will get a lot of warnings) -> Next
 - "Configuring the terminal ..." -> Next
-- "Choose the default behaviour of `git pull`" -> [recommended] Select "Rebase" (makes it easier to work on a single branch cooperatively) -> Next
+- "Choose the default behavior of `git pull`" -> [recommended] Select "Rebase" (makes it easier to work on a single branch cooperatively) -> Next
 - "Choose credential helper" -> Next
 - "Extra configuration options" -> Next
 - "Experimental options" -> Next
@@ -297,7 +297,7 @@ If you wear your jeans shorts above the t-shirt in the wardrobe (or on the items
 that would be tugged into the shorts. Without the alpha mask, the t-shirt would clip along the edges behind the jeans shorts. You can try it out
 in the editor as all changes are not persistent, so you will not break anything by playing around.
 
-The image asset management part on the bottrom of the asset-tab lists 4 image files for the jeans shorts:
+The image asset management part on the bottom of the asset-tab lists 4 image files for the jeans shorts:
 - one for the front view of the jeans shorts
 - one for the back view of the jeans
 - one for the button of the jeans
@@ -343,7 +343,7 @@ In the example of the t-shirt, there are two lines:
 m_prints=crown t-shirt_print_crown.png
 m_prints=noPrint
 ```
-The first line means that the default print of the t-shirt, the kissing smilie is replaced by the crown print image, when the module with
+The first line means that the default print of the t-shirt, the kissing smiley is replaced by the crown print image, when the module with
 the name `prints` (defined in the `t-shirt1.asset.ts` file) is set by the user to the state `crown`.
 The second line means that when the state `noPrint` is set, this layer will show no image, making the asset a t-shirt without print.
 
@@ -354,11 +354,7 @@ Now back to the layers 'base' and 'arms': If you look at these two layers, you c
 t-shirt with sleeves, but they use a different priority layer and point filters. This is called a split, that is needed so the
 sleeves of the t-shirt show correctly in the various possible arm-related poses. The torso part of the body is of course on the 'Body' priority
 layer and uses the 'body' points and the 'bodyarms' points, whereas the arms layer uses the 'Above Arms' priority layer and filters only
-points of the 'arms' and the few 'bodyarms' points which are used by both the body and the arms for a seemless connection of the image sections.
-
-In addition, both layers use the feature 'Select image based on value of a bone' (see ?-Button for more details).
-This is used here to override the image of the t-shirt with the flat variant (also used by the back view layers), for just the breast bone
-stop point 'small', which means that this override is used also for the breast stop point 'flat'.
+points of the 'arms' and the few 'bodyarms' points which are used by both the body and the arms for a seamless connection of the image sections.
 
 Hint: For a more complex example on this topic, have a look at the `dresses/maid_dress` asset. It for instance shows that your overrides can use more
 complex conditions which chain statements with an `&` (and) or `|` (or), like so:
@@ -396,14 +392,14 @@ Hint: An alternative way to make your asset, and the potentially easier way when
 For now, when making images for your own assets, please make sure they are all in the size 1000 x 1500 pixels, as the editor will then overlap 
 them perfectly to other layers as well as onto the body. Also remember to make a front view and a back view of your asset, if that is needed.
 
-If your asset is for a female body and covers the breasts, you likely need to make several sized variants for the front view layer that covers the breasts. For this purpose, you can download a [set of body templates for different breast sizes on GitHub](https://github.com/Project-Pandora-Game/Documentation/tree/master/asset_creation/templates/). Note the `readme.txt` in the body-sub-folder. 
-Alternatively, you can simply download the character preview with the chosen pose in the editor as image to draw over yourself. There is a black download button above the character view in the editor for that. Please keep the body slider values at default level before drawing over such an image or your asset images will not fit in-game.
+If your asset is for a female body and covers the breasts, you likely need to make several sized variants for the front view layer that covers the breasts. 
+For that, you can simply download the character preview with the chosen pose in the editor as image to draw over yourself. There is a black download button above the character view in the editor for that. Please keep the body slider values at default level before drawing over such an image or your asset images will not fit in-game.
 
 To dive a bit more into the topic of how many images you likely need:
 
 - 1 image for things like a hair flower, which needs no dedicated back view as the item is only on the front side of the body (`ABOVE_BODY` layer) and is half visible from behind.
 - 2 images for something like a hat or skirt that is covering both the front and back side of the head (`ABOVE_BODY` as well as `BELOW_BODY` layer). If the asset looks exactly the same from both sides, then you could even use the same image for both asset layers and only need to make one image.
-- 6-7 images for something like a bra: one image for the back side of the body (`BELOW_BODY` layer) and 5 images (or one more for the flat variant) for the breast sizes small, medium, large, huge, and extreme, covering the bust above and below (use `ABOVE_BODY` layer and then the same five images reused again on the `BELOW_BREASTS` layer to cover them from the back view, too, as some breast sizes can be wider than the body and are thus visible from behind)
+- 4 images for something like a bra: one image for the back aside of the body (`BELOW_BODY` layer), one for the base of the front side, and 2 images (or one more for the flat variant) for the breast sizes small and large, covering the bust above and below (use `ABOVE_BODY` layer and then the same two images reused again on the `BELOW_BREASTS` layer to cover them from the back view, too, as some breast sizes can be wider than the body and are thus visible from behind)
 
 Hint: It is likely extremely helpful to go look up existing (similar) assets to the one you want to make. You can simply load it in the editor and start editing it so you can see how it was done. In many cases you just need to do some small changes, like exchanging image files and renaming things, but can otherwise completely reuse the existing definitions and code. Even advanced features outside the asset editor, like modules, can mostly be copied and reused from the code of existing examples with only minor changes. 
 
@@ -456,7 +452,7 @@ are referenced for each layer on the Layer-tab.
 In the text field you can add all transformations a point should perform when the according point is affected one or more of the listed bones.
 Available transformations are for instance point shifts or rotations around the specified bone.
 
-INFO: Some examples of point transformations that could be writting into the according text field and what they mean:
+INFO: Some examples of point transformations that could be written into the according text field and what they mean:
 ```
 // Slides the point up to 6 units along the positive x-axis when the bone 'Leg Width' is changed towards +180 degrees and up to 6 units along 
 the negative x-axis when the bone is moved towards -180 degrees. No changes on the y-axis.
