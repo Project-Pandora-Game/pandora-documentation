@@ -172,10 +172,6 @@ Later, there will also be support for directly uploading your asset for testing 
 
 One-time setup:
 - Make sure Git, NodeJS v18 and pnpm are in path
-- Clone either recursively or after cloning run:
-```
-git submodule update --init --recursive
-```
 - Open terminal in `pandora-assets` folder and run:
 ```
 pnpm i

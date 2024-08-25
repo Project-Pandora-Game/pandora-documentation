@@ -19,11 +19,11 @@ The following list gives you a brief overview of the things you need to create o
 
 - A GitHub Account
 - A development environment
-- Some scary command line toole
+- Some scary command line tools
 
 # What you need to do
 
-Following is a step-by-step description of what you need to do to contribute to project Pandora. If the list seems long - don't panick, you only have to do that once.
+Following is a step-by-step description of what you need to do to contribute to project Pandora. If the list seems long - don't panic, you only have to do that once.
 
 ## Set-up your environment
 
@@ -36,7 +36,7 @@ Once there, you can find project Pandora [here](https://github.com/Project-Pando
 The easiest way to get access would be to kindly ask in the #general channel of [our Discord](https://discord.gg/EnaPvuQf8d). It's also cool to give a short introduction of yourself.  
 
 ### Development environment
-We strongly recomment using Visual Studio Code (VSC) here. There should be an installer available for every platform. Just go [here](https://code.visualstudio.com/download), download and install it. 
+We strongly recommend using Visual Studio Code (VSC) here. There should be an installer available for every platform. Just go [here](https://code.visualstudio.com/download), download and install it. 
 
 ### The scary command line things
 Alas, all comes with a price. In this case, you need some command line tools to complete your setup
@@ -71,15 +71,15 @@ You can now close the administrator command prompt - you won't need it anymore
 The source code of project Pandora is split into three so called reporitories at the moment. All can be found under this [link](https://github.com/Project-Pandora-Game).
 - pandora -- the actual source code
 - pandora-assets -- the various items (so called assets) of Pandora
-- Documentation -- all the great and complete documentation about project Pandora
+- pandora-documentation -- all the great and complete documentation about project Pandora
 
 First create an empty folder you will use for Pandora. Then open a command prompt inside this folder. Or open it anywhere and move to that folder
 
 - Use the following commands to clone the assets repository (Documetation being optional):
 ```
-git clone --recursive https://github.com/Project-Pandora-Game/pandora.git
-git clone --recursive https://github.com/Project-Pandora-Game/pandora-assets.git
-git clone --recursive https://github.com/Project-Pandora-Game/Documentation.git
+git clone https://github.com/Project-Pandora-Game/pandora.git
+git clone https://github.com/Project-Pandora-Game/pandora-assets.git
+git clone https://github.com/Project-Pandora-Game/pandora-documentation.git
 ```
 - Then enter the folder using the following command:
 ```
@@ -89,16 +89,7 @@ cd pandora-assets
 ```
 pnpm i
 ```
-- Repeat this for the other folder(s)
-
-If you get an error along the lines of:
-```
-error Package "pandora-common" refers to a non-existing file ...
-```
-Then run the following command before trying to run `pnpm i` again:
-```
-git submodule update --init --recursive
-```
+- Repeat this for the `pandora` folder.
 
 ## Starting a test server locally
 
