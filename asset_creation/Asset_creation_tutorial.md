@@ -73,8 +73,7 @@ For creating your asset (from nothing to PR) you will need the following tools:
 - [Visual Studio Code](https://code.visualstudio.com/download) - The editor used to write logic in.
 	- *Note: While not strictly necessary, this tutorial expects you to use VSCode. If you are experienced with JavaScript development you can skip it and look at the manual instruction at the end of this section.*
 - [Git](https://git-scm.com/downloads) - For both cloning the needed repositories and contributing your asset
-- [Node.js (version 18.x - LTS)](https://nodejs.org/en/download/) - Runtime for running JavaScript code outside of a browser - necessary for all the tools
-  - Alternative: If you known what you are doing and what the benefits and drawbacks are, you can install `pnpm` yourself, without the use of corepack.
+- [Node.js (version 20.x - LTS)](https://nodejs.org/) - Runtime for running JavaScript code outside of a browser - necessary for all the tools
 
 ## Initial setup
 
@@ -109,18 +108,18 @@ The following steps have to be done only once to setup your development and test
 
 ### Install Node.js and enable corepack
 
-- Download it here: https://nodejs.org/en/download/ (for Windows use ".msi" installer)
+- Download it here: https://nodejs.org/ (for Windows use ".msi" installer)
 - Run the downloaded installer
 - Click "Next >" all the way, keeping the defaults
 
 - After installing it, open the Windows PowerShell **as administrator**. (search for "powershell", right-click, "Run as administrator")
   - Yes, if you are on Windows you **must** do this in PowerShell, doing it in cmd won't work
-  - If you are not on Windows, skip the next step, but
+  - If you are not on Windows, skip the next step
 - Allow running of scripts
 ```
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser -Force
 ```
-- Use the following command to verify Node.js was installed correctly: (expected output: `v18.x.x`)
+- Use the following command to verify Node.js was installed correctly: (expected output: `v20.x.x`)
 ```
 node --version
 ```
@@ -128,7 +127,7 @@ node --version
 ```
 corepack enable
 ```
-- Verify pnpm is available (expected output: The version of pnpm as `7.x.x`)
+- Verify pnpm is available (expected output: The version of pnpm as `9.x.x`)
 ```
 pnpm --version
 ```
@@ -171,7 +170,7 @@ Later, there will also be support for directly uploading your asset for testing 
 ## Running without VSCode (__skip if you used VSCode__)
 
 One-time setup:
-- Make sure Git, NodeJS v18 and pnpm are in path
+- Make sure Git and NodeJS are in path and that you are using corepack
 - Open terminal in `pandora-assets` folder and run:
 ```
 pnpm i
@@ -408,6 +407,11 @@ Hint: It is likely extremely helpful to go look up existing (similar) assets to 
 The following topics are needed extremely rarely and even in the case that what is currently offered isn't enough for the asset you want to create, it is best to ask on Discord first, as synchronizing with others might allow other assets to reuse work needed for what your asset needs - thus making creation of similar assets easier in the future.
 
 ## ADVANCED: The Points-tab
+
+> __OUTDATED__: This section is outdated as of the body rework and is pending rewrite.
+> 
+> Reason: The body rework included a change that layers can no longer have their own points.
+> All points are now managed and assigned through templates and the tab edits templates directly.
 
 The Points-tab lets you manage the points for all layers.
 
