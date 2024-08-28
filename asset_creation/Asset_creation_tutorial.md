@@ -210,12 +210,11 @@ You can find the latest stable version of the editor here: [https://project-pand
 
 ## Getting familiar with the asset editor
 
-First, you will be greeted by three buttons:
-- First one ('Load Assets From File System') uses your browser's file system access API (if available) to let you load ~~and save~~ from your hard disk directly. (Note that this method was superseded by the second one as it has far fewer drawbacks.)
-- Second one ('Load Assets From Local Development Server') loads the definitions from your local asset server, but saving changes downloads a zip file, which you will need to extract and place its contents into the correct spot manually. **This is the preferred method**
-- Third one ('Load Assets From Official Link') loads assets from the stable version, not requiring you to run your own asset server, but also not allowing the creation of new asset fully.
+First, you will be greeted by two buttons:
+- First one ('Load Assets From Local Development Server') loads the definitions from your local asset server, but saving changes downloads a zip file, which you will need to extract and place its contents into the correct spot manually. **This is the preferred method**
+- Second one ('Load Assets From Official Link') loads assets from the stable version, not requiring you to run your own asset server, but also not allowing the creation of new asset fully.
 
-For the sake of this tutorial, we will assume you will pick the second button.
+For the sake of this tutorial, we will assume you will pick the first button.
 
 The asset editor screen itself consists of three tabs in the default configuration. From left to right:
 - the items tab - used for equipping and editing assets (editing an asset changes the tab to the layer management tab)
@@ -398,7 +397,7 @@ To dive a bit more into the topic of how many images you likely need:
 
 - 1 image for things like a hair flower, which needs no dedicated back view as the item is only on the front side of the body (`ABOVE_BODY` layer) and is half visible from behind.
 - 2 images for something like a hat or skirt that is covering both the front and back side of the head (`ABOVE_BODY` as well as `BELOW_BODY` layer). If the asset looks exactly the same from both sides, then you could even use the same image for both asset layers and only need to make one image.
-- 4 images for something like a bra: one image for the back aside of the body (`BELOW_BODY` layer), one for the base of the front side, and 2 images (or one more for the flat variant) for the breast sizes small and large, covering the bust above and below (use `ABOVE_BODY` layer and then the same two images reused again on the `BELOW_BREASTS` layer to cover them from the back view, too, as some breast sizes can be wider than the body and are thus visible from behind)
+- 4 images for something like a bra: one image for the back side of the body (`BELOW_BODY` layer), one for the base of the front side, and 2 images (or one more for the flat variant) for the breast sizes "small" and "medium", covering the bust above and below (use `ABOVE_BODY` layer and then the same two images reused again on the `BELOW_BREASTS` layer to cover them from the back view, too, as some breast sizes can be wider than the body and are thus visible from behind)
 
 Hint: It is likely extremely helpful to go look up existing (similar) assets to the one you want to make. You can simply load it in the editor and start editing it so you can see how it was done. In many cases you just need to do some small changes, like exchanging image files and renaming things, but can otherwise completely reuse the existing definitions and code. Even advanced features outside the asset editor, like modules, can mostly be copied and reused from the code of existing examples with only minor changes. 
 
