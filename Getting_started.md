@@ -41,7 +41,7 @@ We strongly recommend using Visual Studio Code (VSC) here. There should be an in
 ### The scary command line things
 Alas, all comes with a price. In this case, you need some command line tools to complete your setup
 - [Git](https://git-scm.com/downloads) -- for both cloning needed repositories and contributing your asset
-- [Node.js (version 18.x - LTS)](https://nodejs.org/en/download/) 
+- [Node.js (version 20.x - LTS)](https://nodejs.org/en/download/) 
 But no worries, we'll guide you step by step...
 
 <ins>**Install Git**</ins>
@@ -51,7 +51,7 @@ _Recommendation: During some steps it will ask you to select editor, if you did 
 
 <ins>**Install Node.js and enable corepack**</ins>
 
-- First install [Node.js (version 18.x - LTS)](https://nodejs.org/en/download/).
+- First install [Node.js (version 20.x - LTS)](https://nodejs.org/en/download/).
 - After installing it open the command prompt **as administrator**.
 - Use the following command to verify Node.js was installed correctly: (expected output: The version you installed)
 ```
