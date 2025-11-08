@@ -4,6 +4,8 @@ Follow these steps to make all your Pandora item dreams a reality:
 
 # Terminology:
 
+You do not need to study the following terms in detail, but know that they are explained here, as these terms will be used throughout this tutorial.
+
 ## Asset
 An asset is a code blueprint on how an item can be created and configured from it. It consists of two parts:
 - the logic of the asset - like default colors, modules, asset attributes, effects, etc. - created using code
@@ -63,7 +65,22 @@ Pandora combines multiple assets by layering their layers in a specific order. A
 
 Each layer defines its image file, points, draw priority (order of images being behind or on top of other images) and a few other settings independently of other layers. 
 
+# Deciding how you want to go about asset creation
+
+This step might be the most important one:
+
+Do you feel comfortable enough to set up a local development environment of Pandora on your computer, so you can create assets end-to-end and commit them yourselves?
+If so, the next chapter contains detailed instructions on how to do that.
+Note that the coding part of an asset is relatively simple and you do not need to be a programmer or experienced coder to create it. Just look at the examples of other assets and ask for help when you have trouble understanding a part of the single asset code file you need to define per asset.
+
+The other option is to only use the online hosted version of Pandora's asset creation editor, hosted under: [https://project-pandora.com/editor](https://project-pandora.com/editor)
+This allows you to do the graphics part of your asset and test it to some degree in the editor, while you team up with someone else to do the asset code. You can also ask us for help with that.
+If you decide to go that route, you can ignore the next chapter and continue directly with the section "Pandora's asset editor and graphics" further down.
+
 # Development tools installation
+
+_Note: If, besides asset creation, you also want to work on Pandora feature development itself, or want to test your assets (e.g. complex room devices with several character slots) with several characters at once in a locally running instance of Pandora, skip the the following installation instructions, and instead follow the similar but extended steps described here:_ https://github.com/Project-Pandora-Game/pandora-documentation/blob/master/Getting_started.md
+_Also skip these steps if you already have installed a full local development environment according to the instructions linked above._
 
 While the graphics part of the asset creation process does not require any tools except Pandora's graphics editor, currently there are limitations as Pandora is early in development, making creation of assets slightly harder. We expect the asset creation to become easier as more development will be done and more features become stable, not changing as frequently.
 
@@ -185,7 +202,7 @@ pnpm dev
 # Understanding the code behind assets
 
 All assets are in `src/assets/` of the pandora-assets repository.\
-For instance in `src/assets/bottoms/jeans_shorts/`, you can find the `jeans_shorts.asset.ts` file with the asset's code.
+For instance in `src/assets/collars/heart_choker/`, you can find the `heart_choker.asset.ts` file with the asset's code.
 
 _Note: The name of the `.asset.ts` file **must** match the name of the folder it is inside._
 
@@ -211,7 +228,7 @@ You can find the latest stable version of the editor here: [https://project-pand
 ## Getting familiar with the asset editor
 
 First, you will be greeted by two buttons:
-- First one ('Load Assets From Local Development Server') loads the definitions from your local asset server, but saving changes downloads a zip file, which you will need to extract and place its contents into the correct spot manually. **This is the preferred method**
+- First one ('Load Assets From Local Development Server') loads the definitions from your local asset server, but saving changes downloads a zip file, which you will need to extract and place its contents into the correct spot manually. **This is the preferred method, but requires you to install the development tools, as described further above**
 - Second one ('Load Assets From Official Link') loads assets from the stable version, not requiring you to run your own asset server, but also not allowing the creation of new asset fully.
 
 For the sake of this tutorial, we will assume you will pick the first button.
@@ -225,7 +242,7 @@ Navigation is done via the top bar in each tab, where you can create a new tab, 
 
 In the following sections, all available commons tabs will be explained briefly.
 
-### The "Items" tab
+### "Items" tab
 
 The "Items" tab provides an overview of the body and all items/assets available, edited, or visible on the body.
 
@@ -234,9 +251,9 @@ In the following, some assets will be highlighted that are worth looking at to g
 Let's start with a very simple one:
 Expand the category `headwear` (with the "[+]" area) and find the `headwear/lace_headband` asset. First, press the "+" button to add it. That way, you will see your changes (you should see the item appear on your character and in the middle section of the items-tab). Afterwards, press the "pen"-button to start editing it. This will switch the current tab from items-tab to the asset-tab automatically.
 
-### The Asset-tab
+### "Asset" tab
 
-The Asset-tab lets you edit, export, and import a single asset as well as manage its layers and the images used by the asset.
+The "Asset" tab lets you edit, export, and import a single asset as well as manage its layers and the images used by the asset.
 
 You can see that the lace_headband asset consists of only one layer with the name "band" and one image `maid_headband1.png`.
 
@@ -245,7 +262,7 @@ them perfectly to the layers of other assets as well as onto the body.
 
 Select the layer "band" so that it is highlighted and this action should now fill the layer-tab, to the right of the current tab, with content.
 
-### The Layer-tab
+### "Layer" tab
 
 Several properties can be edited on this tab, such as:
 - changing the layer name (for your convenience to identify this layer easier in the asset-tab)
@@ -265,57 +282,87 @@ All other setting were left empty and are of no importance right now.
 
 This is as simple as an asset can be. Let's look at another important tab.
 
-### The "Poses" tab
+### "Poses" tab
 
-The "Poses"-tab enables you to manipulate the pose of the editor character from the preview-tab. 
+The "Poses"-tab enables you to manipulate the pose and body sizes of the editor character from the preview-tab. 
 
-### The "Wardrobe" tab
+### "Wardrobe" tab
 
 The "Wardrobe"-tab acts like the in-game wardrobe and lets you for instance use asset modules or quickly add random clothes onto your character for testing. 
+
+### "Pandora" tab
+
+This tab lets you open a feature-restricted simulation of Pandora within the editor to test your asset creation (changes) and especially room-level items, for instance room devices with character slots.
+It should be self explanatory how to use it.
+
+### "Setup" tab
+
+This tab shows the character before any transformations or poses are applied to the character and any worn assets. An asset creator does not typically need to use this tab and would only use the "Preview" tab instead.
+
+### "Points" tab
+
+This tab is only needed for a very advanced topic described at the end of this tutorial. An asset creator does not typically need to use this tab ever.
 
 # Looking at more advanced assets
 
 In the following section, let's have a look at increasingly more complex assets that are good examples of what assets can (currently already) do and how.
 
-## Jeans shorts: Multiple layers and alpha masks
+_Note, that you can experiment as much as you like, change existing assets and see how the change is reflected on the character in the preview tab._
+_None of your changes are persistent, so you will not break anything by playing around._
+_On the other hand, this also means that refreshing or closing your browser will reset any work you do on a new asset creation, so please make sure to not forget exporting an edited asset, if you want to use the changes (more on that later)._
+
+## Jeans shorts: Multiple layers and automesh layers
 
 Expand the category `bottoms` (with the "[+]" area) and find the `bottoms/jeans_shorts` asset. Now first press the "+" button to add it - so you will
 see your changes (you should see it appear in "Equipped" section) - and then the "pen"-button to start editing it.
+_Note: You can also directly us the "pen"-button next to the "+"-button to both steps at once._
 
 In the asset-tab you can see that this asset has three layers:
 - one for the front view of the jeans shorts
 - one for the back view of the jeans
 - one for the button of the jeans to be able to color it separately
 
-The white square behind the first two layer names indicates that these two layers use alpha masks. Alpha masks are separate image files that
-make this asset, which has the alpha masks added, hide certain parts of the images of another asset on the same layer priority ordered below
-that asset.
-In this concrete example, the jeans shorts are on the layer priority type 'Above body', same as most clothes, like for instance the t-shirt asset.
-If you wear your jeans shorts above the t-shirt in the wardrobe (or on the items-tab of the editor), the alpha mask would hide the t-shirt parts
-that would be tugged into the shorts. Without the alpha mask, the t-shirt would clip along the edges behind the jeans shorts. You can try it out
-in the editor as all changes are not persistent, so you will not break anything by playing around.
-
-The image asset management part on the bottom of the asset-tab lists 4 image files for the jeans shorts:
+The image asset management part at the bottom of the asset-tab lists three image files for the jeans shorts:
 - one for the front view of the jeans shorts
 - one for the back view of the jeans
 - one for the button of the jeans
-- one which is the image file for the alpha mask (as mentioned before)
 
-Note: If you use an image as alpha mask, the solid black parts of the image will hide what it covers, whereas transparent or white parts will not hide anything.
+Note that while in this case, each layer uses exactly one image, this is not always the case as a layer can use and switch between many different images based variables/conditions. 
 
 Next, select the first layer 'jeans back' and look into the layer-tab.
 
-As this layer represents the back view of the asset (the jeans from behind), the layer priority type is 'Below body', which means that it is ordered
-behind the body. The point template selected here is the most common one: Body. The body template makes sure that asset images will be transformed
+The contents of the "layer"-tab may look a bit different than the layer tabs of other assets you may have seen. The reason is that this layer is of the more recently added layer type "automatic image layer" (also nicknamed "automesh" layer). You can easily identify this layer type by the four characteristic tabs near the bottom.
+Automesh layers are a kind of meta layer for asset creators to more easily define the layer structure with a lower risk of making mistakes, while Pandora will then automatically translate this definition into one or more "image layers" (the other common layer type used by assets) during deployment, which is the raw definition of the actual layers used by Pandora.
+
+IMPORTANT: Therefore, please always use the "automatic image layer" type when creating the layers of your new asset, whenever possible!
+
+The selected "jeans back" layer represents the back view of the asset (the jeans from behind).
+Let's focus on the four tabs of this automesh layer:
+
+The first one, "Template, lets you select the point template used for this layer and its variant.
+The point template selected for the shorts is the most common one: Body. The body template makes sure that asset images will be transformed
 alongside body changes (e.g. weight sliders or arm movements). As mentioned, selecting the right template is important for making an asset work.
+The template variant is of layer priority 'Below body', which means that it is ordered behind the body. 
+The enabled parts of the template are body and legs, as part of the used image of the jeans shorts already reaches into the point mesh of the legs.
 
-The selected image for this layer is of course `Jeans_Shorts_Back.png` and further below on the tab, the special alpha mask image file was selected.
+The next tab, "Graphical layers" lets you define if the automesh layer shall generate a single or more graphical layers, so the actual layers used by Pandora.
+This can be efficient if different, separately colorable parts of an image shall be directly layered over each other, such as a belt and a belt buckle.
+It also lets you assign a color group defined in the asset file of the asset for each graphical layer.
+Optionally, you can define a name for each graphical layer, which is useful if you have more than one.
+In the example of the jeans shorts, there is only one graphical layer with a default name and the color group "Pants" from the `bottoms/jeans_shorts/jeans_shorts.asset.ts` file.
 
-The layer for the front view is pretty similar, aside from the layer priority type 'Above body' and the different asset image used.
-The image for the alpha mask is exactly the same as for the back view. It is not always the case, that you can use the same alpha mask for 
-front and back view. Sometimes you may need different images for front and back view alpha masks (e.g. for the high heels asset).
+The third tab, "Variables", lets you select variables (or conditions) based on which different images shall be used by the graphical layers.
+If you press on "Add variable" you can see that there are different kinds of possible variables that a condition can be based on. The most commonly used one is "based on typed module", followed by "based on front/back view".
+Our current example is a simple asset that uses no variables.
 
-The button layer is again similar to the other front view laxer, but it uses the 'static' point template as the button does not need to
+The last tab "Images", lets you assign the images uploaded or pre-existing in the "image management" section of the "Asset" tab to each graphical layer, based on the conditions derived from the selected variables from the previous tab.
+For the jeans shorts, you have no conditions, so only one image can be selected for the single graphical layer of the automesh layer. The selected image for this layer is of course `Jeans_Shorts_Back.png`.
+
+The layer "jeans front" for the front view is pretty similar, aside from the template variant 'Above body' and the different asset image used.
+Try to click this layer and then in the "Template" tab, remove the template part "legs" as a test. You should notice that in the "preview" view, the bottom part of the jeans short image is no longer shown on the front facing character, as the reduced number of point based meshes cut the image where the meshes above the legs end.
+Remembering this can help you to decide which template parts you need to enable on a new asset. No worries, though, the editor will warn you when you use a template part that is not necessary to be enabled. So for example, if you would enable the "arms" part here, you could see a warning icon in the middle of the "Asset" tab and could click on "View log" to check why. (more on warnings later)
+
+The button layer is again similar to the other front view layer, but it uses the 'static' point template as the button does not need to
 transform/move/scale with the body in any way.
 
 IMPORTANT NOTE: The order of the layers on the asset-tab matters! Only the correct order will get the desired visual results. Feel free to change
@@ -325,48 +372,32 @@ the order of the layers of the jeans shorts to get a feeling for it. Changes to 
 
 Here is another asset example that is important to understand if you want to do any asset that covers breasts or has sleeves.
 
-Expand the category `tops` (with the "[+]" area) and find the `tops/t-shirt1` asset. Now first press the "+" button to add it - so you will
-see your changes (you should see it appear in "Equipped" section) - and then the "pen"-button to start editing it.
+Expand the category `tops` (with the "[+]" area) and find the `tops/t-shirt1` asset. Now press the "pen+" button to make the character wear it and also start editing it at the same time.
 
-In the asset-tab you can see that this asset has three layers:
+In the asset-tab you can see that this asset has five layers:
 - 'base' for the front view of the torso
 - 'arms' for the front view of the sleeves
 - 'back' for the back view of the torso
 - 'back_arms' for the back view of the sleeves
 - 'print' for showing an optional print on the front view via the according module that this asset has defined in the `t-shirt1.asset.ts` file.
 
-Let's start with the 'print' layer. The new part here is the text field under 'Image overrides'. The ?-button explains what it is about.
-In the example of the t-shirt, there are two lines:
-```
-m_prints=crown t-shirt_print_crown.png
-m_prints=noPrint
-```
-The first line means that the default print of the t-shirt, the kissing smiley is replaced by the crown print image, when the module with
-the name `prints` (defined in the `t-shirt1.asset.ts` file) is set by the user to the state `crown`.
-The second line means that when the state `noPrint` is set, this layer will show no image, making the asset a t-shirt without print.
+Let's start with the 'print' layer. The new part here is that the "Variable" tab uses one "based on typed module" with the module name `prints` that this asset has defined in the `t-shirt1.asset.ts` file.
+This also changed how the "Images" tab looks: You can there see a possibility to select an image representing one of the t-shirt prints for each state of the `prints`-module.
+An outlier is the  state `noPrint`, where this layer will show no image, making the asset a t-shirt without print.
 
-Hint: For more examples of how image overrides are used, the following assets may be interesting: `footwear/high_heels`
-or the `bras/style1` bra, which does not show for flat breasts due to bone-based image overrides.
+Hint: For an example of how image overrides are used in the case of non-automesh layer, so old "image layers", the following asset may be interesting: the `bras/style1` bra, which does not show for flat breasts due to bone-based image overrides.
 
-Now back to the layers 'base' and 'arms': If you look at these two layers, you can see that they use the same image file, which is a
-t-shirt with sleeves, but they use a different priority layer and point filters. This is called a split, that is needed so the
-sleeves of the t-shirt show correctly in the various possible arm-related poses. The torso part of the body is of course on the 'Body' priority
-layer and uses the 'body' points and the 'bodyarms' points, whereas the arms layer uses the 'Above Arms' priority layer and filters only
-points of the 'arms' and the few 'bodyarms' points which are used by both the body and the arms for a seamless connection of the image sections.
+Now back to the layers 'Front' and 'Back': If you look at these two automesh layers, you can see that they use the same image file, which is a
+t-shirt with sleeves, but they use a different template variant.
+The enabled template parts here are "body" and "arms" as the t-shirt image reaches into the meshes over the arms.
 
-Hint: For a more complex example on this topic, have a look at the `dresses/maid_dress` asset. It for instance shows that your overrides can use more
-complex conditions which chain statements with an `&` (and) or `|` (or), like so:
-```
-m_skirtState=up&backView=0 maid_f_skirt_up_l2.png
-```
-You can also combine this with bone values to make overrides pose dependant, e.g.
-```
-m_cuffState=normal&leg_r>=0 cuffs_closed.png
-```
+Finally, the image layer "bust" shows an example of how the bust part of a clothing item is defined using a special (point) template and only two images!
+This same approach can be copied and reused for most clothing assets, e.g. the asian dress (`dresses/asian_dress`).
+On Pandora's Discord there is a small how-to that documents how this asset was made: https://discord.com/channels/872284471611760720/872569272780607518/1411953336764338197
 
 # Creating your first asset
 
-When you want to make a new asset, there is is an according button on the items-tab. Pressing it opens a dialogue.
+When you want to make a new asset, there is an according button on the "items" tab. Pressing it opens a dialogue.
 
 Choose a fitting category for your asset. Body for instance is the category for parts of the body, such as eyes or hair.
 
@@ -378,12 +409,14 @@ Only in case the asset will be a body part (e.g. eyes or hair), you need to sele
 After proceeding, you will the be prompted to download a `*.zip` file with your asset so that you can save its contents in the pandora-asset repository for
 committing it when it is ready. This file consists of a minimal `*.asset.ts` file for you to build upon and a placeholder version of the `graphics.json`.
 
-The tab view will immediately switch to the asset-tab with your new item loaded, automatically equipping it on the editor character, too.
+If you did not set up a local development environment as part of this tutorial, and cannot place these files in the according `src` folder of your locally checked out pandora-assets repository, so you can edit the `*.asset.ts` file in your coding editor (e.g. Visual Studio Code or VSCodium), then you can also cancel the download, after pressing the "Create" button.
+Or you hand the files over together with the image and the ready `graphics.json` to the person whom you are collaborating with on the asset for the coding part.
+
+After that, the tab view will immediately switch to the "Asset" tab with your new item loaded, automatically equipping it on the editor character, too.
 
 Please be aware that your asset is not saved in the editor, as the editor resets when it reloads or refreshes. Please make sure to
-export the asset you are making regularly and overwrite the `graphics.json` of the new asset with the one from the exported package, ~~unless you started the editor in the 'Load Assets From File System' mode~~ [Work In Progress - doesn't autosave yet].
-
-Hint: An alternative way to make your asset, and the potentially easier way when you are new to the process, is to edit an existing asset in the editor that is very similar to what you want to make. Basically, you look for an asset under the "Items"-tab that has a similar amount of layers and images and potentially similar modules and start editing it. In the most ideal case you just have to replace the images and export the graphics.json for usage in your new asset. More realistically, you may need to do more changes, but it may still be the fastest way to make your new asset, especially as you get more experience. 
+export the asset definition regularly and overwrite the content of the `graphics.json` of the new asset from the exported package on your local device.
+You can do this on the "asset" tab with the button "Export definition to clipboard". Or use "Export archive" to download another ZIP file with everything, including the images you added.
 
 ## Making the asset images
 
@@ -391,15 +424,20 @@ For now, when making images for your own assets, please make sure they are all i
 them perfectly to other layers as well as onto the body. Also remember to make a front view and a back view of your asset, if that is needed.
 
 If your asset is for a female body and covers the breasts, you likely need to make several sized variants for the front view layer that covers the breasts. 
-For that, you can simply download the character preview with the chosen pose in the editor as image to draw over yourself. There is a black download button above the character view in the editor for that. Please keep the body slider values at default level before drawing over such an image or your asset images will not fit in-game.
+For that, you can simply download the character preview with the chosen pose in the editor as image to draw over yourself. There is a black download button above the character view in the editor for that. Please keep the body slider values at default level before drawing over such an image or your asset images will not fit in-game. Also, you typically want the arms in the default t-pose to draw over them.
 
 To dive a bit more into the topic of how many images you likely need:
 
-- 1 image for things like a hair flower, which needs no dedicated back view as the item is only on the front side of the body (`ABOVE_BODY` layer) and is half visible from behind.
-- 2 images for something like a hat or skirt that is covering both the front and back side of the head (`ABOVE_BODY` as well as `BELOW_BODY` layer). If the asset looks exactly the same from both sides, then you could even use the same image for both asset layers and only need to make one image.
-- 4 images for something like a bra: one image for the back side of the body (`BELOW_BODY` layer), one for the base of the front side, and 2 images (or one more for the flat variant) for the breast sizes "small" and "medium", covering the bust above and below (use `ABOVE_BODY` layer and then the same two images reused again on the `BELOW_BREASTS` layer to cover them from the back view, too, as some breast sizes can be wider than the body and are thus visible from behind)
+- 1 image for things like a hair flower, which needs no dedicated back view as the item is only on the front side of the body (`Above body` template variant / layer priority) and is half visible from behind.
+- 2 images for something like a hat or skirt that is covering both the front and back side of the head (`Above body` as well as `Below body` template variant / layer priority). If the asset looks exactly the same from both sides, then you could even use the same image for both asset layers and only need to make one image.
+- 4 images for something like a bra: one image for the back side of the body (`Below body` template variant / layer priority), one for the base of the front side, and 2 images (or one more for the flat variant) for the breast sizes "small" and "medium", covering the bust above and below (use `Above body` template variant / layer priority and then the same two images reused again on the `Below breasts` template variant / layer priority to cover them from the back view, too, as some breast sizes can be wider than the body and are thus visible from behind)
 
-Hint: It is likely extremely helpful to go look up existing (similar) assets to the one you want to make. You can simply load it in the editor and start editing it so you can see how it was done. In many cases you just need to do some small changes, like exchanging image files and renaming things, but can otherwise completely reuse the existing definitions and code. Even advanced features outside the asset editor, like modules, can mostly be copied and reused from the code of existing examples with only minor changes. 
+Hint: It is likely extremely helpful to go look up existing (similar) assets to the one you want to make. You can simply load it in the editor and start editing it so you can see how it was done. In many cases you just need to do some small changes, like exchanging image files and renaming things, but can otherwise completely reuse the existing definitions and code. Even advanced features outside the asset editor, like modules in `*.asset.ts` files, can mostly be copied and reused from the code of existing examples with only minor changes. 
+
+## Check for warnings in the "Asset" tab
+
+While you make changes to the layers of an asset in the editor, the asset is built in real-time in the background. The "Asset" tab contains a section "Graphics build result" that should show a green checkmark icon and "No problems" before you when you have completed your asset and want to export the definition for committing it as a pull request on GitHub (or give it to your asset creation partner).
+In case the icon is not green, you can press on "View log" to see which layers have problems and then make changes and see how the issue count changes in real-time.
 
 # Advanced topics
 
