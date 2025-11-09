@@ -84,7 +84,7 @@ If you decide to go that route, you can ignore the next chapter and continue dir
 
 # Development tools installation
 
-_Note: If, besides asset creation, you also want to work on Pandora feature development itself, or want to test your assets (e.g. complex room devices with several character slots) with several characters at once in a locally running full instance of Pandora, skip the the following installation instructions, and instead follow the similar but extended steps described here:_ https://github.com/Project-Pandora-Game/pandora-documentation/blob/master/Getting_started.md
+_Note: If, besides asset creation, you also want to work on Pandora feature development itself, or want to test your assets (e.g. complex room devices with several character slots) with several characters at once in a locally running full instance of Pandora, skip the following installation instructions, and instead follow the similar but extended steps described here:_ https://github.com/Project-Pandora-Game/pandora-documentation/blob/master/Getting_started.md
 _Also skip these steps if you already have installed a full local development environment according to the instructions linked above._
 
 While the graphics part of the asset creation process does not require any tools except Pandora's graphics editor, currently there are still limitations of what you can do with this approach, as for instance the code part of an asset still needs to be defined outside of the editor in code. We expect that asset creation will become even easier and more convenient as further development will be done and more features become stable, not changing as frequently.
