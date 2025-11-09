@@ -1,8 +1,8 @@
 # Getting started with Pandora
 
-This is the first try to write and easy to understand guide of what needs to be done aimed at code developers wanting to get their local environment set up, so you can contribute to the Pandora project. 
+This is the first try to write an easy to understand guide aimed at code developers wanting to get their local environment set up, so you can contribute to Project Pandora. 
 
-Feel free to ask on [our Discord](https://discord.gg/EnaPvuQf8d) for help with this process. It is even possible to find someone to help you with the code parts yourself.
+Feel free to ask on [our Discord](https://discord.gg/EnaPvuQf8d) for help with this process. It is even possible to find someone to help you with the code parts.
 
 # Asset creation
 
@@ -10,12 +10,12 @@ Feel free to ask on [our Discord](https://discord.gg/EnaPvuQf8d) for help with t
 
 **If you are only planning to do asset contributions, please follow the [Asset Creation Tutorial](./asset_creation/Asset_creation_tutorial.md).**
 
-Asset Creation Tutorial has steps tailored specifically for asset creators and less tech-savvy contributors to get the simplest setup necessary for contributing only assets.
-This document is aimed at code developers.
+The Asset Creation Tutorial has steps tailored specifically for asset creators and less tech-savvy contributors to get the simplest setup necessary for contributing only assets.
+This document is aimed at code developers or contributors that want to work on both, code and assets.
 
 # What you need
 
-The following list gives you a brief overview of the things you need to create or install on your local machine. Deatiled descriptions follow in the later sub-sections.
+The following list gives you a brief overview of the things you need to create or install on your local machine. Detailed descriptions follow in the later sub-sections.
 
 - A GitHub Account
 - A development environment
@@ -31,9 +31,6 @@ Following is a step-by-step description of what you need to do to contribute to 
 Git is a source code repository tool that allows several people to work on a software product at the same time and in parallel (amazing, no?). In order to contribute, you need an account, though. Just go [to the github page](https://github.com) and create one. If you already have such an account, you can skip this step, but as project Pandora is a NSFW project, dealing with various not so well received kinks, it may be wise not to use your work account for contributing. Just saying...
 
 Once there, you can find project Pandora [here](https://github.com/Project-Pandora-Game).
-
-### Request Access to the Pandora project
-The easiest way to get access would be to kindly ask in the #general channel of [our Discord](https://discord.gg/EnaPvuQf8d). It's also cool to give a short introduction of yourself.  
 
 ### Development environment
 We strongly recommend using Visual Studio Code (VSC) here. There should be an installer available for every platform. Just go [here](https://code.visualstudio.com/download), download and install it. 
