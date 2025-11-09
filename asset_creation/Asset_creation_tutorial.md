@@ -391,7 +391,7 @@ Let's start with the 'print' layer. The new part here is that the "Variable" tab
 This also changed how the "Images" tab looks: There, you can see the possibility to select an image representing one of the t-shirt prints for each state of the `prints`-module.
 An outlier is the  state `noPrint`, where this layer will show no image, making the asset a t-shirt without print.
 
-_Note 1: An automesh layer can use more than one variable to define image override conditions for the "Image" tab. You could take a look at the `toys/dildo` asset for a complex example that uses 4 variables, together allowing to pick the layer image based on a combination of material, tip design, insertion depth, and front or back view of the asset._
+_Note 1: An automesh layer can use more than one variable to define image override conditions for the "Images" tab. You could take a look at the `toys/dildo` asset for a complex example that uses 4 variables, together allowing to pick the layer image based on a combination of material, tip design, insertion depth, and front or back view of the asset. So therefore, if an entry under the "Images" tab in this example has the heading "Rubber | Smooth | Outside | Front", it means the drop-down below selects the image that should be used if the 4 variables have this exact state combination. It is not uncommon that some of the possible combinations require no image and the dropdown selector value should stay '[None]'._
 
 _Note 2: For an example of how image overrides are used in the case of non-automesh layers, so old "image layers", the following asset may be interesting: the `bras/style1` bra, which does not show the asset for flat breasts due to bone-based image overrides._
 
