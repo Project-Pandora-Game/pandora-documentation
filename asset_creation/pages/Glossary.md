@@ -38,6 +38,7 @@ Body part assets are defined using the `DefineBodypart` macro.
 Type: `roomDevice`
 
 An item that can be displayed in a room. Some room devices can also allow characters to enter inside.
+Room devices are sometimes also described as "room-level items".
 
 Room devices are defined using the `DefineRoomDeviceAsset` macro.
 
@@ -47,7 +48,7 @@ Type: `roomDeviceWearablePart`
 
 This is a fake asset automatically created by Pandora when a character enters a room device.
 
-When a character is inside a room device, one can seemingly see the room device equipped in their wardrobe.
+When a character is inside a room device, one can seemingly see the room device equipped in that character's wardrobe.
 This item actually is a "Room device wearable part" and it is specific to the slot the character is in. It provides a mechanism for applying effects on this character.
 
 Assets of this type cannot be manually defined - they are defined automatically for each slot of any Room device.
@@ -64,10 +65,10 @@ Locks are defined using the `DefineLockAsset` macro.
 
 ## Item size
 
-Allows other bits of Pandora logic to determine where does this item fit. Most notably used for storage modules to prevent things such as storing a table in a purse.
+Allows other bits of Pandora logic to determine where this item fits. Most notably used for storage modules to prevent things such as storing a table in a purse.
 
 Items can have the following sizes:
-- `bodypart` - Exclusively used by body parts, as it makes no sense to consider them as anyting else than part of the body.
+- `bodypart` - Exclusively used by body parts, as it makes no sense to consider them as anything else than part of the body.
 - `small` - Items that fit into a box (20cm x 20cm).
 - `medium` - Items that fit into a backpack.
 - `large` - Items that fit into a 1m x 1m crate.
@@ -77,8 +78,9 @@ Items can have the following sizes:
 
 Assets can have many "attributes". They are generic things like "Body", "Hair", "Collar", "Collar with front ring", ...
 
-Asset attributes allow for two main things:
+Asset attributes allow for three main things:
 - Assets can require or forbid other assets below them (like a leash can require a collar with a front ring in order to equip it on a character, or an insert-able gag can forbid anything that covers mouth under it)
+- Assets can cover other assets of a certain attribute below them (like a mitten can cover a rubber glove), which makes the covered items unable to be removed, before the covering item is.
 - Assets can hide other assets below them (a hood can use attributes to fully hide any hair) - this is possible using alpha masks too, but these are currently experimental, unfinished and with heavy performance cost
 
 You can find a detailed list of attributes at the top of the [pandora-assets/src/attributes.ts](https://github.com/Project-Pandora-Game/pandora-assets/blob/master/src/attributes.ts) file.
@@ -96,7 +98,7 @@ You can find possible effects in these files:
 
 Modules are what makes items dynamic and changeable by users - they allow changing how the item looks or even works based on conditions or states the user can change.
 
-Each asset can have however many modules it wants, each identified by unique `id`. The effects from the modules are combined and order of modules is not important (except for the order of how they are displayed in the wardrobe UI).
+Each asset can have as many modules as wanted, each identified by unique `id`. The effects from the modules are combined, but the order of modules is not important (except for the order of how they are displayed in the wardrobe UI).
 
 There are several types of modules currently supported:
 
@@ -106,19 +108,19 @@ This is the most common module type.
 It has a simple purpose: It allows the user to select one of the presented "variants".
 
 Exactly one variant of each typed module is active at a time.
-While a variant is active, any properties defined on it (attributes, effects, pose limits) are applied on the asset, same as if you would write them on the asset directly.
-On the other hand non-selected variants have no effect on the item\*.
+While a variant is active, any properties defined on it (attributes, effects, pose limits) are applied on the asset, same as if you would define them for the asset directly.
+On the other hand, non-selected variants have no effect on the item\*.
 
-[*] Note: Non-selected variant attributes contribute to item filters and affect item permissions, if user limits items based on attributes.
+[*] Note: Non-selected variant attributes contribute to item filters and affect item permissions, if a user limits items based on attributes.
 
 ### "Storage" module
 
-Storage module allows storing different items inside this one.
+A storage module allows storing different items inside it.
 The stored items do not have any effect\* on either the item storing them, or on the character.
 
 Storage modules have two main settings:
-- Item count limit limits how many items can be stored inside.
-- Item size limits sets the maximum "item size" that fits inside. Note, that this must be strictly _lower_ than the size of the item that has this module. This is also done to prevent infinite nesting of items (no matryoshka dolls, thank you).
+- `maxCount` sets the maximum number of items that can be stored inside.
+- `maxAcceptedSize` sets the maximum "item size" that fits inside. Note, that this must be strictly _lower_ than the size of the item that has this module. This is also done to prevent infinite nesting of items (no matryoshka dolls, thank you).
 
 [*] Note: Items stored inside storage modules are still considered by permissions. Some interactions with an item (e.g. moving it or deleting it) require being allowed to also do the same with all items stored inside.
 
@@ -128,7 +130,7 @@ Lock slot allows a single `lock` type item to be inserted inside and possibly lo
 
 It also allows applying additional effects when the lock is locked (or not present/unlocked).
 The most common effect is `blockAddRemove: true`, which prevents the item from being removed (or added) if it is locked.
-The second most common effect is to use `blockModules: ['...']` to lock specific modules.
+The second most common effect is to use `blockModules: ['...']` to lock specific other modules while the lock is locked.
 
 ### "Text" module
 
@@ -171,7 +173,7 @@ This is especially useful for when asset definition changes, as it produces a wa
 
 A layer that is meant to be combined with the ["Text" module](#text-module) for worn items.
 
-It displays text that user enters into the text module.
+It displays text that a user enters into the text module.
 
 ### Image layer
 
@@ -220,11 +222,11 @@ It displays text that user enters into the text module.
 
 Sometimes also called "Priority layer" or simply "priority".
 
-Layer priority defines what order should layers from different items be drawn on the character. This ordering can also change with character's pose (e.g. arms can move in front or behind the body).
+Layer priority defines in what order layers from different items should be drawn on the character. This ordering can also change with the character's pose (e.g. arms can move in front or behind the body).
 
 ## Point templates
 
-Point templates define how asset graphics are deformed as character's pose changes.
+Point templates define how asset graphics are deformed when a character's pose changes.
 This is done, as Pandora allows too many poses for it to be possible to draw each of them manually (unless you are creating an asset that severely limits those, e.g. a Yoke).
 
 There are many point templates defined in Pandora's asset repository.
@@ -236,7 +238,7 @@ You can see the full list in [pandora-assets/src/templates/](https://github.com/
 > It is also generally not recommended to create a new, custom point template, as their creation is complex and makes maintaining assets harder for us as Pandora's internals change.
 
 The most notable point templates are:
-- `static` - Displays the image witout any change. Useful for layers that are either not affected by posing (e.g. hair, head items, or decorative bow), or when your item forces a single pose (e.g. a Yoke).
+- `static` - Displays the image without any change. Useful for layers that are either not affected by posing (e.g. hair, head items, or decorative bow), or when your item forces a single pose (e.g. a Yoke).
 - `body` - The most common point template. Any item that is shaped like a body and follows the body as it moves.
 - `body_soles_back` - For anything that should be displayed under soles, while kneeling, in the back view.
 - `handheld` - For item that is held in hand, but that doesn't change with pose (other than following the hand).
