@@ -1,5 +1,13 @@
 # Getting started with Pandora
 
+> [!CAUTION]
+> __OUTDATED__: This documentation is moderately outdated and pending rewrite.
+> 
+> While most information in here is still applicable, there are details that have changed over time (for example specific tools or their versions). \
+> If you are interested only in asset creation, please see the [Asset Creation Tutorial](asset_creation/pages/Tutorial.md), which is up-to-date. \
+> We are planning to update this document soon.
+
+
 This is the first try to write an easy to understand guide aimed at code developers wanting to get their local environment set up, so you can contribute to Project Pandora. 
 
 Feel free to ask on [our Discord](https://discord.gg/EnaPvuQf8d) for help with this process. It is even possible to find someone to help you with the code parts.

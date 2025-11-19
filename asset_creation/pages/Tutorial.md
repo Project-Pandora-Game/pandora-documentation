@@ -133,11 +133,11 @@ This tab is only needed for a very advanced topic described at the end of this t
 
 # Looking at more advanced assets
 
-Often, assets are a bit more complex than the "Lace Headband" example. Looking at a few more existing assets may help you to learn by example. Therefore, we recommend you to now read this section dedicated to [Looking at existing assets](Tutorial_Existing_assets.md).
-
 > [!IMPORTANT]
 > This section also explains many mechanisms you are likely to encounter during asset creation, using practical examples.\
 > If this is your first time diving into the depths of asset creation for Project Pandora, we strongly recommend reading it.
+
+Often, assets are a bit more complex than the "Lace Headband" example. Looking at a few more existing assets may help you to learn by example. Therefore, we recommend you to now read this section dedicated to [Looking at existing assets](Tutorial_Existing_assets.md).
 
 # Creating your first asset
 
