@@ -92,7 +92,7 @@ Equipped items can apply some effects to the character wearing it. Some example 
 You can find possible effects in these files:
 - Generic effects in [pandora-common/src/assets/effects.ts](https://github.com/Project-Pandora-Game/pandora/blob/master/pandora-common/src/assets/effects.ts)
 - Muffling (gag) effects in [pandora-common/src/chat/muffling.ts](https://github.com/Project-Pandora-Game/pandora/blob/master/pandora-common/src/chat/muffling.ts)
-- Hearing impairment effects in [pandora-common/src/assets/effects.ts](https://github.com/Project-Pandora-Game/pandora/blob/master/pandora-common/src/chat/hearingImpairment.ts)
+- Hearing impairment effects in [pandora-common/src/chat/hearingImpairment.ts](https://github.com/Project-Pandora-Game/pandora/blob/master/pandora-common/src/chat/hearingImpairment.ts)
 
 ## Modules
 
