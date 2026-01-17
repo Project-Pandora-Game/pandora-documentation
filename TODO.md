@@ -14,12 +14,15 @@ kanban-plugin: board
 - [ ] #Assets Consider dropping typed module change memory
 - [ ] #Assets Graphics: Add way to programatically mirror image (usage: back view in room device)
 - [ ] #Assets Graphics: Text module curved text
+- [ ] #Assets Improve the point transformations of the leg width slider
 - [ ] #Assets Prerequisites on body sizes for assets
 - [ ] #Assets Recheck height offset calculation for standing, kneeling and sitting. Consider allowing assets to offset this (e.g. heels, things to stand on, wearable devices)
 - [ ] #Assets Repository: Check snake_case filenaming
 - [ ] #Assets Rework how kneeling and sitting works, explore using actual 3D transforms, fix back sitting being extremely weird
 - [ ] #Assets Room devices: "Isolation" toggle, similar to Bound Usage, that prevents characters inside from interacting with outside of the device (log 11/10/2025 with Zara)
 - [ ] #Assets Room devices: Ability to scale if there is no character slot
+- [ ] #Assets Add new flat kneeling state ([#332](https://github.com/Project-Pandora-Game/pandora-assets/issues/332))
+- [ ] #Assets Split arms at elbow and add 6 new layer priorities for hands, lower_arms, and upper_arms ([#36](https://github.com/Project-Pandora-Game/pandora-assets/issues/36)), ([#269](https://github.com/Project-Pandora-Game/pandora/issues/269))
 - [ ] #Assets Split legs control
 - [ ] #Assets Stop points for sizes sliders (mainly only specific breasts sizes)
 - [ ] #Chat Add a `/wardrobe` command that opens the wardrobe of the specified character (or self if no name is specified)
