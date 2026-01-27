@@ -8,6 +8,7 @@ kanban-plugin: board
 
 - [ ] #Account Ability to change username
 - [ ] #Account Account deletion
+- [ ] #Assets Allow rotating room devices and deployed personal items. Allow specifying default rotation for deployment.
 - [ ] #Assets "Space role"-based lock
 - [ ] #Assets Add checks for priority layer assignments, relative to item being or not being a bodypart
 - [ ] #Assets Character size [pandora#71](https://github.com/Project-Pandora-Game/pandora/issues/71)
@@ -40,7 +41,6 @@ kanban-plugin: board
 - [ ] #Modifiers Modifier idea: setting up bone rotation limits, so people can't for example force you into an impossible leg split you can't handle
 - [ ] #Performance Load logical asset definition asynchronously
 - [ ] #UI #Performance Throttle space search list updates
-- [ ] #UI Add "debug" settings and hide debug options altogether unless enabled there
 - [ ] #Room Add ability to make the directional path squares larger
 - [ ] #Room Allow customizing if room level device shows interactable icon.
 - [ ] #Room Character label and room device buttons hitscanning
@@ -49,6 +49,7 @@ kanban-plugin: board
 - [ ] #Room Think about what to do with the random toggles at the end
 - [ ] #Server Framework: A new framework for minigames (log 25/06/03)
 - [ ] #Server Services: Convert server code to use service manager
+- [ ] #UI Add "debug" settings and hide debug options altogether unless enabled there
 - [ ] #UI Character selection: Current state labels rework
 - [ ] #UI Collect character names for id resolution from items (particularly locks)
 - [ ] #UI Consider local character/account name cache
@@ -71,6 +72,12 @@ kanban-plugin: board
 
 ## Up Next
 
+- [ ] #Chat Action log needs filters expanded to deployed item movement and to room device repositioning
+- [ ] #Wardrobe Highlight items visible inside room (devices and items)
+- [ ] #UI DMs should remember chat input text across reloads
+- [ ] #Editor Show coordinates on mouse hover over graphics
+- [ ] #Editor Ability to set conditions for a layer to be enabled (mainly related to text layers)
+- [ ] #Bug #Editor Creating new asset doesn't work for bodyparts or room devices. Revise the template mechanism.
 - [ ] #Safety Check what blocking does, write it up
 - [ ] #Safety Settings for who can DM, who can request contact
 - [ ] #Bug #Assets Bed bottom ropes look weird when laying face down
@@ -78,44 +85,19 @@ kanban-plugin: board
 - [ ] #Bug #Assets Cup/Mug force above hair arms, instead of standard front arms
 - [ ] #Bug #Assets Party dress: When arm is lifted upwards, the front separates (causes gaps)
 - [ ] #Documentation Update Node.js versions mentioned (maybe just make it a link?)
-- [ ] #Bug #Room Double-click triggers from single-click buttons [Discord](https://discord.com/channels/872284471611760720/872568378190086174/1441954493208989728)
-	→ A bit hard to do, the handlers don't interact well and preventing default on click doesn't stop doubleclick event
 - [ ] #Wardrobe Consider allowing more characters for item names
 - [ ] #Dev Make Zod into peer dependency or avoid needing it in asset repository (often causes breaks on updates, which resolve themselves, but are annoying and noisy)
 
 
 ## In Progress
 
-- [ ] #Logic Allow wearable items to be visible in room when in room inventory
-	- [ ] Asset definition:
-		- [ ] Mark as deployable in room (consider making it an options object)
-	- [ ] Item runtime data:
-		- [ ] Position in room
-		- [ ] If deployed
-		- [ ] If auto-deploy
-	- [ ] Template data:
-		- [ ] Auto-deploy
-	- [ ] Actions:
-		- [ ] "Move item" action
-		- [ ] Update "transfer" to auto-deploy if going into room
-		- [ ] Update "spawn" to auto-deploy if going into room
-	- [ ] Graphics definition:
-		- [ ] Consider how much we can reuse room device code
-		- [ ] Add runtime layers
-		- [ ] Add source layers
-		- [ ] Add code for building graphics
-	- [ ] Client:
-		- [ ] UI in wardrobe for setting auto-deploy, deployment, and position
-		- [ ] Display it in room
-		- [ ] Handle for dragging in room
-		- [ ] Context menu from handle
-		- [ ] Move mode
-		- [ ] Setting to hide handles (re-use room device setting?)
 
 
 ## Done
 
 **Complete**
+- [x] #UI Hitscan for graphics elements
+- [x] #Logic Allow wearable items to be visible in room when in room inventory
 
 
 ## On Hold
@@ -123,6 +105,8 @@ kanban-plugin: board
 - [ ] #ESLint member-ordering
 - [ ] #ESLint {} for `for` (seems ESLint doesn't have enough configurability for this)
 - [ ] #ESLint method-signature-style (maybe consider later)
+- [ ] #Bug #Room Double-click triggers from single-click buttons [Discord](https://discord.com/channels/872284471611760720/872568378190086174/1441954493208989728)
+	→ A bit hard to do, the handlers don't interact well and preventing default on click doesn't stop doubleclick event
 
 
 ## Rejected
@@ -138,6 +122,6 @@ kanban-plugin: board
 
 %% kanban:settings
 ```
-{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false],"new-line-trigger":"shift-enter","new-card-insertion-method":"prepend","tag-colors":[{"tagKey":"#Safety","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(255, 136, 0, 1)"},{"tagKey":"#Core","color":"rgba(204, 204, 204, 1)","backgroundColor":"rgba(0, 0, 0, 1)"}]}
+{"kanban-plugin":"board","list-collapse":[false,false,false,false,false,false],"new-line-trigger":"shift-enter","new-card-insertion-method":"prepend","tag-colors":[{"tagKey":"#Safety","color":"rgba(0, 0, 0, 1)","backgroundColor":"rgba(255, 136, 0, 1)"},{"tagKey":"#Core","color":"rgba(204, 204, 204, 1)","backgroundColor":"rgba(0, 0, 0, 1)"},{"tagKey":"#Bug","color":"rgba(221, 149, 156, 1)","backgroundColor":"rgba(61, 22, 22, 1)"}]}
 ```
 %%
