@@ -72,9 +72,6 @@ kanban-plugin: board
 
 ## Up Next
 
-- [ ] #Chat Action log needs filters expanded to deployed item movement and to room device repositioning
-- [ ] #Wardrobe Highlight items visible inside room (devices and items)
-- [ ] #UI DMs should remember chat input text across reloads
 - [ ] #Editor Show coordinates on mouse hover over graphics
 - [ ] #Editor Ability to set conditions for a layer to be enabled (mainly related to text layers)
 - [ ] #Bug #Editor Creating new asset doesn't work for bodyparts or room devices. Revise the template mechanism.
@@ -96,8 +93,9 @@ kanban-plugin: board
 ## Done
 
 **Complete**
-- [x] #UI Hitscan for graphics elements
-- [x] #Logic Allow wearable items to be visible in room when in room inventory
+- [x] #UI DMs should remember chat input text across reloads
+- [x] #Wardrobe Highlight items visible inside room (devices and items)
+- [x] #Chat Action log needs filters expanded to deployed item movement and to room device repositioning
 
 
 ## On Hold
@@ -119,6 +117,8 @@ kanban-plugin: board
 
 - [x] #Safety Add option to hide characters of blocked accounts
 - [x] #Chat Add a way to manually link items in chat messages
+- [x] #UI Hitscan for graphics elements
+- [x] #Logic Allow wearable items to be visible in room when in room inventory
 
 %% kanban:settings
 ```
