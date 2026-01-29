@@ -72,6 +72,7 @@ kanban-plugin: board
 
 ## Up Next
 
+- [ ] #UI In-room wearable items context menu: Add button to wear the item
 - [ ] #Editor Ability to set conditions for a layer to be enabled (mainly related to text layers)
 - [ ] #Bug #Editor Creating new asset doesn't work for bodyparts or room devices. Revise the template mechanism.
 - [ ] #Safety Check what blocking does, write it up
