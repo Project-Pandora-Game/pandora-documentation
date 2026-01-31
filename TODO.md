@@ -11,7 +11,6 @@ kanban-plugin: board
 - [ ] #Assets Allow rotating room devices and deployed personal items. Allow specifying default rotation for deployment.
 - [ ] #Assets "Space role"-based lock
 - [ ] #Assets Add checks for priority layer assignments, relative to item being or not being a bodypart
-- [ ] #Assets Character size [pandora#71](https://github.com/Project-Pandora-Game/pandora/issues/71)
 - [ ] #Assets Consider dropping typed module change memory
 - [ ] #Assets Graphics: Add way to programatically mirror image (usage: back view in room device)
 - [ ] #Assets Graphics: Text module curved text
@@ -43,7 +42,6 @@ kanban-plugin: board
 - [ ] #UI #Performance Throttle space search list updates
 - [ ] #Room Add ability to make the directional path squares larger
 - [ ] #Room Allow customizing if room level device shows interactable icon.
-- [ ] #Room Character label and room device buttons hitscanning
 - [ ] #Room Option to display character labels and room device buttons as overlay level. Optionally triggerable by an key (Alt proposed).
 - [ ] #Room special space setting for admins: "dark room" -> the light is out so everyone has a blindness effect of a configurable strength on them
 - [ ] #Room Think about what to do with the random toggles at the end
@@ -57,7 +55,6 @@ kanban-plugin: board
 - [ ] #UI Contacts: Think about what to use instead of tables (might be fine by now~ )
 - [ ] #UI Permission prompt should better show currently granted permissions and already denied ones
 - [ ] #UI Room settings: Show number of room settings overrides
-- [ ] #UI See spaces list from space
 - [ ] #UI Tutorials: Highlighting of character name on canvas
 - [ ] #Wardrobe Add the option to show the chat also while in the wardrobe view (kinda done with notifications?)
 - [ ] #Wardrobe Module Type Split & Allow freezing item's setup
@@ -72,8 +69,6 @@ kanban-plugin: board
 
 ## Up Next
 
-- [ ] #Bug #Chat Messages from other rooms should not trigger notifications while in focus mode.
-- [ ] #UI In-room wearable items context menu: Add button to wear the item
 - [ ] #Editor Ability to set conditions for a layer to be enabled (mainly related to text layers)
 - [ ] #Bug #Editor Creating new asset doesn't work for bodyparts or room devices. Revise the template mechanism.
 - [ ] #Safety Check what blocking does, write it up
@@ -89,11 +84,15 @@ kanban-plugin: board
 
 ## In Progress
 
+- [ ] #UI See spaces list from space
 
 
 ## Done
 
 **Complete**
+- [x] #Room Character label and room device buttons hitscanning
+- [x] #UI In-room wearable items context menu: Add button to wear the item
+- [x] #Bug #Chat Messages from other rooms should not trigger notifications while in focus mode.
 
 
 ## On Hold
@@ -103,6 +102,7 @@ kanban-plugin: board
 - [ ] #ESLint method-signature-style (maybe consider later)
 - [ ] #Bug #Room Double-click triggers from single-click buttons [Discord](https://discord.com/channels/872284471611760720/872568378190086174/1441954493208989728)
 	→ A bit hard to do, the handlers don't interact well and preventing default on click doesn't stop doubleclick event
+- [ ] #Assets Character size [pandora#71](https://github.com/Project-Pandora-Game/pandora/issues/71)
 
 
 ## Rejected
