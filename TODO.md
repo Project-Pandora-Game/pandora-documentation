@@ -69,30 +69,33 @@ kanban-plugin: board
 
 ## Up Next
 
-- [ ] #Editor Ability to set conditions for a layer to be enabled (mainly related to text layers)
 - [ ] #Bug #Editor Creating new asset doesn't work for bodyparts or room devices. Revise the template mechanism.
 - [ ] #Safety Check what blocking does, write it up
 - [ ] #Safety Settings for who can DM, who can request contact
-- [ ] #Bug #Assets Bed bottom ropes look weird when laying face down
 - [ ] #Bug #Assets Linen blouse can have breasts peek from the back
 - [ ] #Bug #Assets Cup/Mug force above hair arms, instead of standard front arms
 - [ ] #Bug #Assets Party dress: When arm is lifted upwards, the front separates (causes gaps)
 - [ ] #Documentation Update Node.js versions mentioned (maybe just make it a link?)
 - [ ] #Wardrobe Consider allowing more characters for item names
-- [ ] #Dev Make Zod into peer dependency or avoid needing it in asset repository (often causes breaks on updates, which resolve themselves, but are annoying and noisy)
+	(go through characters currently used in asset names)
 
 
 ## In Progress
 
-- [ ] #UI See spaces list from space
 
 
 ## Done
 
 **Complete**
+- [x] #Bug #Assets Suitcase chat message:
+	> (Shiina (c715) placed suitcase near Shiina (c715)_DYNAMIC)
+- [x] #Dev Make Zod into peer dependency or avoid needing it in asset repository (often causes breaks on updates, which resolve themselves, but are annoying and noisy)
+- [x] #Editor Ability to set conditions for a layer to be enabled
+- [x] #UI See spaces list from space
 - [x] #Room Character label and room device buttons hitscanning
 - [x] #UI In-room wearable items context menu: Add button to wear the item
 - [x] #Bug #Chat Messages from other rooms should not trigger notifications while in focus mode.
+- [x] #Bug #Assets Bed bottom ropes look weird when laying face down
 
 
 ## On Hold
