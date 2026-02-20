@@ -82,20 +82,19 @@ kanban-plugin: board
 
 ## In Progress
 
+- [ ] #Core Coordinated space switching
+	
+	- [x] Make it work
+	- [x] Do not start if it wouldn't work for all
+	- [x] Join exceptions for invited people
+	- [ ] Character modifier to auto-approve or even enforce
+	- [ ] Setting to always use coordinated space switch when moving space-space, even if alone
+	- [ ] Make the UI look good
 
 
 ## Done
 
 **Complete**
-- [x] #Bug #Assets Suitcase chat message:
-	> (Shiina (c715) placed suitcase near Shiina (c715)_DYNAMIC)
-- [x] #Dev Make Zod into peer dependency or avoid needing it in asset repository (often causes breaks on updates, which resolve themselves, but are annoying and noisy)
-- [x] #Editor Ability to set conditions for a layer to be enabled
-- [x] #UI See spaces list from space
-- [x] #Room Character label and room device buttons hitscanning
-- [x] #UI In-room wearable items context menu: Add button to wear the item
-- [x] #Bug #Chat Messages from other rooms should not trigger notifications while in focus mode.
-- [x] #Bug #Assets Bed bottom ropes look weird when laying face down
 
 
 ## On Hold
@@ -116,6 +115,15 @@ kanban-plugin: board
 
 ## Archive
 
+- [x] #Bug #Assets Suitcase chat message:
+	> (Shiina (c715) placed suitcase near Shiina (c715)_DYNAMIC)
+- [x] #Dev Make Zod into peer dependency or avoid needing it in asset repository (often causes breaks on updates, which resolve themselves, but are annoying and noisy)
+- [x] #Editor Ability to set conditions for a layer to be enabled
+- [x] #UI See spaces list from space
+- [x] #Room Character label and room device buttons hitscanning
+- [x] #UI In-room wearable items context menu: Add button to wear the item
+- [x] #Bug #Chat Messages from other rooms should not trigger notifications while in focus mode.
+- [x] #Bug #Assets Bed bottom ropes look weird when laying face down
 - [x] #Editor Show coordinates on mouse hover over graphics
 - [x] #UI DMs should remember chat input text across reloads
 - [x] #Wardrobe Highlight items visible inside room (devices and items)
