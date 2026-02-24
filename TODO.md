@@ -18,7 +18,6 @@ kanban-plugin: board
 - [ ] #Assets Prerequisites on body sizes for assets
 - [ ] #Assets Recheck height offset calculation for standing, kneeling and sitting. Consider allowing assets to offset this (e.g. heels, things to stand on, wearable devices)
 - [ ] #Assets Repository: Check snake_case filenaming
-- [ ] #Assets Rework how kneeling and sitting works, explore using actual 3D transforms, fix back sitting being extremely weird
 - [ ] #Assets Room devices: "Isolation" toggle, similar to Bound Usage, that prevents characters inside from interacting with outside of the device (log 11/10/2025 with Zara)
 - [ ] #Assets Room devices: Ability to scale if there is no character slot
 - [ ] #Assets Add new flat kneeling state ([#332](https://github.com/Project-Pandora-Game/pandora-assets/issues/332))
@@ -69,6 +68,8 @@ kanban-plugin: board
 
 ## Up Next
 
+- [ ] #UI Coordinated space switching: Add check for character being online (currently exists but not presented well)
+- [ ] #Assets Rework how kneeling and sitting works, explore using actual 3D transforms, fix back sitting being extremely weird
 - [ ] #Bug #Editor Creating new asset doesn't work for bodyparts or room devices. Revise the template mechanism.
 - [ ] #Safety Check what blocking does, write it up
 - [ ] #Safety Settings for who can DM, who can request contact
@@ -82,14 +83,6 @@ kanban-plugin: board
 
 ## In Progress
 
-- [ ] #Core Coordinated space switching
-	
-	- [x] Make it work
-	- [x] Do not start if it wouldn't work for all
-	- [x] Join exceptions for invited people
-	- [ ] Character modifier to auto-approve or even enforce
-	- [ ] Setting to always use coordinated space switch when moving space-space, even if alone
-	- [ ] Make the UI look good
 
 
 ## Done
@@ -132,6 +125,7 @@ kanban-plugin: board
 - [x] #Chat Add a way to manually link items in chat messages
 - [x] #UI Hitscan for graphics elements
 - [x] #Logic Allow wearable items to be visible in room when in room inventory
+- [x] #Core Coordinated space switching
 
 %% kanban:settings
 ```
