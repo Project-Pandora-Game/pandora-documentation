@@ -12,7 +12,7 @@ kanban-plugin: board
 - [ ] #Assets "Space role"-based lock
 - [ ] #Assets Add checks for priority layer assignments, relative to item being or not being a bodypart
 - [ ] #Assets Consider dropping typed module change memory
-- [ ] #Assets Graphics: Add way to programatically mirror image (usage: back view in room device)
+- [ ] #Assets Graphics: Add way to programmatically mirror image (usage: back view in room device)
 - [ ] #Assets Graphics: Text module curved text
 - [ ] #Assets Improve the point transformations of the leg width slider
 - [ ] #Assets Prerequisites on body sizes for assets
@@ -52,6 +52,7 @@ kanban-plugin: board
 - [ ] #UI Consider local character/account name cache
 - [ ] #UI Contacts: Split into contacts and DM subscreens
 - [ ] #UI Contacts: Think about what to use instead of tables (might be fine by now~ )
+- [ ] #UI Permissions: Show overview of permissions per character and remove all at once - TBD (https://discord.com/channels/872284471611760720/1117931525275664435/1492206518089678899)
 - [ ] #UI Permission prompt should better show currently granted permissions and already denied ones
 - [ ] #UI Room settings: Show number of room settings overrides
 - [ ] #UI Tutorials: Highlighting of character name on canvas
