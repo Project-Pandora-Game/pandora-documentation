@@ -56,6 +56,7 @@ kanban-plugin: board
 - [ ] #UI Permission prompt should better show currently granted permissions and already denied ones
 - [ ] #UI Room settings: Show number of room settings overrides
 - [ ] #UI Tutorials: Highlighting of character name on canvas
+- [ ] #Wardrobe Module state buttons of uncreated assets should show the default state.
 - [ ] #Wardrobe Add the option to show the chat also while in the wardrobe view (kinda done with notifications?)
 - [ ] #Wardrobe Module Type Split & Allow freezing item's setup
 - [ ] #Wardrobe Alternative layout for mobile and TVs (portrait variant, overlapping panes)
