@@ -8,6 +8,7 @@ kanban-plugin: board
 
 - [ ] #Account Ability to change username
 - [ ] #Account Account deletion
+- [ ] #Assets Add asset groups to assets that allow a user to transform an asset into another asset of that group when adding it to a character
 - [ ] #Assets Allow rotating room devices and deployed personal items. Allow specifying default rotation for deployment.
 - [ ] #Assets "Space role"-based lock
 - [ ] #Assets Add checks for priority layer assignments, relative to item being or not being a bodypart
@@ -44,6 +45,7 @@ kanban-plugin: board
 - [ ] #Room Option to display character labels and room device buttons as overlay level. Optionally triggerable by an key (Alt proposed).
 - [ ] #Room special space setting for admins: "dark room" -> the light is out so everyone has a blindness effect of a configurable strength on them
 - [ ] #Room Think about what to do with the random toggles at the end
+- [ ] #Room Add UI to enter a "lead" mode with any displayed wearable item in the room, so you can "carry it around".
 - [ ] #Server Framework: A new framework for minigames (log 25/06/03)
 - [ ] #Server Services: Convert server code to use service manager
 - [ ] #UI Add "debug" settings and hide debug options altogether unless enabled there
