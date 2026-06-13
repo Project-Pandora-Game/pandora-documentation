@@ -25,7 +25,6 @@ kanban-plugin: board
 - [ ] #Assets Split arms at elbow and add 6 new layer priorities for hands, lower_arms, and upper_arms ([#36](https://github.com/Project-Pandora-Game/pandora-assets/issues/36)), ([#269](https://github.com/Project-Pandora-Game/pandora/issues/269))
 - [ ] #Assets Split legs control
 - [ ] #Assets Stop points for sizes sliders (mainly only specific breasts sizes)
-- [ ] #Chat Add a `/wardrobe` command that opens the wardrobe of the specified character (or self if no name is specified)
 - [ ] #Chat Better error and progress output for chat
 - [ ] #Chat Hide original message if all of it is covered by embeds
 - [ ] #Chat Interactive embeds need buttons instead of being clickable themselves
@@ -41,7 +40,6 @@ kanban-plugin: board
 - [ ] #Performance Load logical asset definition asynchronously
 - [ ] #UI #Performance Throttle space search list updates
 - [ ] #Room Add ability to make the directional path squares larger
-- [ ] #Room Allow customizing if room level device shows interactable icon.
 - [ ] #Room Option to display character labels and room device buttons as overlay level. Optionally triggerable by an key (Alt proposed).
 - [ ] #Room special space setting for admins: "dark room" -> the light is out so everyone has a blindness effect of a configurable strength on them
 - [ ] #Room Think about what to do with the random toggles at the end
@@ -130,6 +128,8 @@ kanban-plugin: board
 - [x] #UI Hitscan for graphics elements
 - [x] #Logic Allow wearable items to be visible in room when in room inventory
 - [x] #Core Coordinated space switching
+- [x] #Room Allow customizing if room level device shows interaction icon.
+- [x] #Chat Add a `/wardrobe` command that opens the wardrobe of the specified character (or self if no name is specified)
 
 %% kanban:settings
 ```
