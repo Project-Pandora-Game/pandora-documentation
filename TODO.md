@@ -6,6 +6,8 @@ kanban-plugin: board
 
 ## Backlog
 
+- [ ] #Bug #Room Better error text when trying to switch spaces together with offline character ([Discord report](https://canary.discord.com/channels/872284471611760720/872568378190086174/1520131080806465678))
+- [ ] #Wardrobe #Performance Improve how saving of saved item collections works while editing them live ([Discord report](https://canary.discord.com/channels/872284471611760720/872568378190086174/1519432434624495858))
 - [ ] #Account Ability to change username
 - [ ] #Account Account deletion
 - [ ] #Assets Add asset groups to assets that allow a user to transform an asset into another asset of that group when adding it to a character
@@ -17,11 +19,9 @@ kanban-plugin: board
 - [ ] #Assets Graphics: Text module curved text
 - [ ] #Assets Improve the point transformations of the leg width slider
 - [ ] #Assets Prerequisites on body sizes for assets
-- [ ] #Assets Recheck height offset calculation for standing, kneeling and sitting. Consider allowing assets to offset this (e.g. heels, things to stand on, wearable devices)
 - [ ] #Assets Repository: Check snake_case filenaming
 - [ ] #Assets Room devices: "Isolation" toggle, similar to Bound Usage, that prevents characters inside from interacting with outside of the device (log 11/10/2025 with Zara)
 - [ ] #Assets Room devices: Ability to scale if there is no character slot
-- [ ] #Assets Add new flat kneeling state ([#332](https://github.com/Project-Pandora-Game/pandora-assets/issues/332))
 - [ ] #Assets Split arms at elbow and add 6 new layer priorities for hands, lower_arms, and upper_arms ([#36](https://github.com/Project-Pandora-Game/pandora-assets/issues/36)), ([#269](https://github.com/Project-Pandora-Game/pandora/issues/269))
 - [ ] #Assets Split legs control
 - [ ] #Assets Stop points for sizes sliders (mainly only specific breasts sizes)
@@ -30,7 +30,6 @@ kanban-plugin: board
 - [ ] #Chat Interactive embeds need buttons instead of being clickable themselves
 - [ ] #Chat Setting to always roll chat
 - [ ] #Chat Some way to show chat also in other views, such as wardrobe: e.g. moving it into an overlay that survives view changes, or splitting the screen into two parts when switching to different views so that the chat always remains visible (but could possibly be resized), or some way to open the chat in a new browser tab ([Livie idea](https://i.imgur.com/OCiluRe.png))
-- [ ] #Chat Use UTF (( for OOC
 - [ ] #Core Bots
 - [ ] #Core Invite someone along to another space
 - [ ] #Core Join space from inside current one
@@ -52,11 +51,8 @@ kanban-plugin: board
 - [ ] #UI Consider local character/account name cache
 - [ ] #UI Contacts: Split into contacts and DM subscreens
 - [ ] #UI Contacts: Think about what to use instead of tables (might be fine by now~ )
-- [ ] #UI Permissions: Show overview of permissions per character and remove all at once - TBD (https://discord.com/channels/872284471611760720/1117931525275664435/1492206518089678899)
 - [ ] #UI Permission prompt should better show currently granted permissions and already denied ones
-- [ ] #UI Room settings: Show number of room settings overrides
 - [ ] #UI Tutorials: Highlighting of character name on canvas
-- [ ] #Wardrobe Module state buttons of uncreated assets should show the default state.
 - [ ] #Wardrobe Add the option to show the chat also while in the wardrobe view (kinda done with notifications?)
 - [ ] #Wardrobe Module Type Split & Allow freezing item's setup
 - [ ] #Wardrobe Alternative layout for mobile and TVs (portrait variant, overlapping panes)
@@ -70,8 +66,8 @@ kanban-plugin: board
 
 ## Up Next
 
+- [ ] #Documentation Write up how positioning in room and of layers works
 - [ ] #UI Coordinated space switching: Add check for character being online (currently exists but not presented well)
-- [ ] #Assets Rework how kneeling and sitting works, explore using actual 3D transforms, fix back sitting being extremely weird
 - [ ] #Bug #Editor Creating new asset doesn't work for bodyparts or room devices. Revise the template mechanism.
 - [ ] #Safety Check what blocking does, write it up
 - [ ] #Safety Settings for who can DM, who can request contact
@@ -85,6 +81,9 @@ kanban-plugin: board
 
 ## In Progress
 
+- [ ] #Assets Rework how kneeling and sitting works, explore using actual 3D transforms, fix back sitting being extremely weird
+- [ ] #Assets Add new flat kneeling state ([#332](https://github.com/Project-Pandora-Game/pandora-assets/issues/332))
+- [ ] #Assets Recheck height offset calculation for standing, kneeling and sitting. Consider allowing assets to offset this (e.g. heels, things to stand on, wearable devices)
 
 
 ## Done
@@ -110,6 +109,10 @@ kanban-plugin: board
 
 ## Archive
 
+- [x] #UI Permissions: Show overview of permissions per character and remove all at once [Discord message](https://discord.com/channels/872284471611760720/1117931525275664435/1492206518089678899)
+- [x] #UI Room settings: Show number of room settings overrides
+- [x] #Chat Add a `/wardrobe` command that opens the wardrobe of the specified character (or self if no name is specified)
+- [x] #Wardrobe Module state buttons of uncreated assets should show the default state.
 - [x] #Bug #Assets Suitcase chat message:
 	> (Shiina (c715) placed suitcase near Shiina (c715)_DYNAMIC)
 - [x] #Dev Make Zod into peer dependency or avoid needing it in asset repository (often causes breaks on updates, which resolve themselves, but are annoying and noisy)
