@@ -11,6 +11,7 @@ kanban-plugin: board
 - [ ] #Account Ability to change username
 - [ ] #Account Account deletion
 - [ ] #Assets Add asset groups to assets that allow a user to transform an asset into another asset of that group when adding it to a character
+- [ ] #Assets Both steel ring cuffs have a wrong layer ordering on the floor.
 - [ ] #Assets Allow rotating room devices and deployed personal items. Allow specifying default rotation for deployment.
 - [ ] #Assets "Space role"-based lock
 - [ ] #Assets Add checks for priority layer assignments, relative to item being or not being a bodypart
