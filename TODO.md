@@ -6,8 +6,6 @@ kanban-plugin: board
 
 ## Backlog
 
-- [ ] #Bug #Room Better error text when trying to switch spaces together with offline character ([Discord report](https://canary.discord.com/channels/872284471611760720/872568378190086174/1520131080806465678))
-- [ ] #Wardrobe #Performance Improve how saving of saved item collections works while editing them live ([Discord report](https://canary.discord.com/channels/872284471611760720/872568378190086174/1519432434624495858))
 - [ ] #Account Ability to change username
 - [ ] #Account Account deletion
 - [ ] #Assets Add asset groups to assets that allow a user to transform an asset into another asset of that group when adding it to a character
@@ -26,19 +24,18 @@ kanban-plugin: board
 - [ ] #Assets Split arms at elbow and add 6 new layer priorities for hands, lower_arms, and upper_arms ([#36](https://github.com/Project-Pandora-Game/pandora-assets/issues/36)), ([#269](https://github.com/Project-Pandora-Game/pandora/issues/269))
 - [ ] #Assets Split legs control
 - [ ] #Assets Stop points for sizes sliders (mainly only specific breasts sizes)
+- [ ] #Bug #Room Better error text when trying to switch spaces together with offline character ([Discord report](https://canary.discord.com/channels/872284471611760720/872568378190086174/1520131080806465678))
 - [ ] #Chat Better error and progress output for chat
 - [ ] #Chat Hide original message if all of it is covered by embeds
 - [ ] #Chat Interactive embeds need buttons instead of being clickable themselves
 - [ ] #Chat Setting to always roll chat
 - [ ] #Chat Some way to show chat also in other views, such as wardrobe: e.g. moving it into an overlay that survives view changes, or splitting the screen into two parts when switching to different views so that the chat always remains visible (but could possibly be resized), or some way to open the chat in a new browser tab ([Livie idea](https://i.imgur.com/OCiluRe.png))
-- [ ] #Core Bots
-- [ ] #Core Invite someone along to another space
-- [ ] #Core Join space from inside current one
 - [ ] #Editor Button to reorder automesh graphical layers
 - [ ] #Modifiers Modifier idea: "tinting" the screen of a user in certain colors, like pink, green or blue
 - [ ] #Modifiers Modifier idea: setting up bone rotation limits, so people can't for example force you into an impossible leg split you can't handle
 - [ ] #Performance Load logical asset definition asynchronously
 - [ ] #UI #Performance Throttle space search list updates
+- [ ] #Wardrobe #Performance Improve how saving of saved item collections works while editing them live ([Discord report](https://canary.discord.com/channels/872284471611760720/872568378190086174/1519432434624495858))
 - [ ] #Room Add ability to make the directional path squares larger
 - [ ] #Room Option to display character labels and room device buttons as overlay level. Optionally triggerable by an key (Alt proposed).
 - [ ] #Room special space setting for admins: "dark room" -> the light is out so everyone has a blindness effect of a configurable strength on them
@@ -46,6 +43,10 @@ kanban-plugin: board
 - [ ] #Room Add UI to enter a "lead" mode with any displayed wearable item in the room, so you can "carry it around".
 - [ ] #Server Framework: A new framework for minigames (log 25/06/03)
 - [ ] #Server Services: Convert server code to use service manager
+- [ ] #Tooling Consider how annoying `isolatedDeclarations` would be
+- [ ] #Tooling Consider enabling `exactOptionalPropertyTypes`
+- [ ] #Tooling Enable `verbatimModuleSyntax`
+- [ ] #Tooling Consider enabling `erasableSyntaxOnly`
 - [ ] #UI Add "debug" settings and hide debug options altogether unless enabled there
 - [ ] #UI Character selection: Current state labels rework
 - [ ] #UI Collect character names for id resolution from items (particularly locks)
@@ -82,6 +83,7 @@ kanban-plugin: board
 
 ## In Progress
 
+- [ ] #Core Bots
 - [ ] #Assets Rework how kneeling and sitting works, explore using actual 3D transforms, fix back sitting being extremely weird
 - [ ] #Assets Add new flat kneeling state ([#332](https://github.com/Project-Pandora-Game/pandora-assets/issues/332))
 - [ ] #Assets Recheck height offset calculation for standing, kneeling and sitting. Consider allowing assets to offset this (e.g. heels, things to stand on, wearable devices)
@@ -90,6 +92,8 @@ kanban-plugin: board
 ## Done
 
 **Complete**
+- [x] #Core Invite someone along to another space
+- [x] #Core Join space from inside current one
 
 
 ## On Hold
