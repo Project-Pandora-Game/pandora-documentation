@@ -25,6 +25,7 @@ kanban-plugin: board
 - [ ] #Assets Split legs control
 - [ ] #Assets Stop points for sizes sliders (mainly only specific breasts sizes)
 - [ ] #Bug #Room Better error text when trying to switch spaces together with offline character ([Discord report](https://canary.discord.com/channels/872284471611760720/872568378190086174/1520131080806465678))
+- [ ] #Bug #UI It is not possible to create a new space if you are not in your personal space. Bonus points for figuring out coordinated space switch to the new space. [Discord](https://canary.discord.com/channels/872284471611760720/872568378190086174/1533228798345089185)
 - [ ] #Chat Better error and progress output for chat
 - [ ] #Chat Hide original message if all of it is covered by embeds
 - [ ] #Chat Interactive embeds need buttons instead of being clickable themselves
