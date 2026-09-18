@@ -46,6 +46,7 @@ kanban-plugin: board
 - [ ] #Room Add UI to enter a "lead" mode with any displayed wearable item in the room, so you can "carry it around".
 - [ ] #Server Framework: A new framework for minigames (log 25/06/03)
 - [ ] #Server Services: Convert server code to use service manager
+- [ ] #Space: Convert the space creation feature about body changes to a (default) room settings feature
 - [ ] #Tooling Consider how annoying `isolatedDeclarations` would be
 - [ ] #Tooling Consider enabling `exactOptionalPropertyTypes`
 - [ ] #Tooling Enable `verbatimModuleSyntax`
