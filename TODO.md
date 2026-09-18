@@ -17,6 +17,8 @@ kanban-plugin: board
 - [ ] #Assets Graphics: Add way to programmatically mirror image (usage: back view in room device)
 - [ ] #Assets Graphics: Text module curved text
 - [ ] #Assets Improve the point transformations of the leg width slider
+- [ ] #Assets Locks: Add an option to hide the recorded character that locked it and an option to hide the recorded time of locking
+- [ ] #Assets Locks: Add an option to hide the running timer of a timer lock for all but the one who locked it
 - [ ] #Assets Prerequisites on body sizes for assets
 - [ ] #Assets Repository: Check snake_case filenaming
 - [ ] #Assets Room devices: "Isolation" toggle, similar to Bound Usage, that prevents characters inside from interacting with outside of the device (log 11/10/2025 with Zara)
