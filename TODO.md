@@ -51,13 +51,11 @@ kanban-plugin: board
 - [ ] #Tooling Consider enabling `exactOptionalPropertyTypes`
 - [ ] #Tooling Enable `verbatimModuleSyntax`
 - [ ] #Tooling Consider enabling `erasableSyntaxOnly`
-- [ ] #UI Add "debug" settings and hide debug options altogether unless enabled there
 - [ ] #UI Character selection: Current state labels rework
 - [ ] #UI Collect character names for id resolution from items (particularly locks)
 - [ ] #UI Consider local character/account name cache
 - [ ] #UI Contacts: Split into contacts and DM subscreens
 - [ ] #UI Contacts: Think about what to use instead of tables (might be fine by now~ )
-- [ ] #UI Permission prompt should better show currently granted permissions and already denied ones
 - [ ] #UI Tutorials: Highlighting of character name on canvas
 - [ ] #Wardrobe Add the option to show the chat also while in the wardrobe view (kinda done with notifications?)
 - [ ] #Wardrobe Module Type Split & Allow freezing item's setup
@@ -96,8 +94,8 @@ kanban-plugin: board
 ## Done
 
 **Complete**
-- [x] #Core Invite someone along to another space
-- [x] #Core Join space from inside current one
+- [x] #UI Add "debug" settings and hide debug options altogether unless enabled there
+- [x] #UI Permission prompt should better show currently granted permissions and already denied ones
 
 
 ## On Hold
@@ -142,6 +140,8 @@ kanban-plugin: board
 - [x] #Core Coordinated space switching
 - [x] #Room Allow customizing if room level device shows interaction icon.
 - [x] #Chat Add a `/wardrobe` command that opens the wardrobe of the specified character (or self if no name is specified)
+- [x] #Core Invite someone along to another space
+- [x] #Core Join space from inside current one
 
 %% kanban:settings
 ```
