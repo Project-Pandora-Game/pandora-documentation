@@ -26,6 +26,7 @@ kanban-plugin: board
 - [ ] #Assets Split arms at elbow and add 6 new layer priorities for hands, lower_arms, and upper_arms ([#36](https://github.com/Project-Pandora-Game/pandora-assets/issues/36)), ([#269](https://github.com/Project-Pandora-Game/pandora/issues/269))
 - [ ] #Assets Split legs control
 - [ ] #Assets Stop points for sizes sliders (mainly only specific breasts sizes)
+- [ ] #Bug Enable condition on character text layers crashes
 - [ ] #Bug #Room Better error text when trying to switch spaces together with offline character ([Discord report](https://canary.discord.com/channels/872284471611760720/872568378190086174/1520131080806465678))
 - [ ] #Bug #UI It is not possible to create a new space if you are not in your personal space. Bonus points for figuring out coordinated space switch to the new space. [Discord](https://canary.discord.com/channels/872284471611760720/872568378190086174/1533228798345089185)
 - [ ] #Chat Better error and progress output for chat
