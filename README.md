@@ -9,3 +9,8 @@ If you have any questions please feel free to contact us on our Discord server.
 It is especially advisable to align with us before you make a (larger) contribution in the form of code or assets.
 
 [![Discord invite](https://discord.com/api/guilds/872284471611760720/widget.png?style=banner2)](https://discord.gg/EnaPvuQf8d)
+
+## Developer guides
+
+- [Getting started](Getting_started.md)
+- [Preparing update announcements](Update_announcements.md)
