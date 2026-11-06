@@ -46,7 +46,7 @@ The page shows exact compared commits, review warnings, source PRs, and commits 
 
 ## Extraction and review
 
-Both repos' existing `## Changelog` templates are supported, including fenced Markdown, `Authored by:`, multiple sections, and nested bullets. HTML comments and the checklist are excluded. Explicit `[by Name]` credits are preserved; otherwise credits use `Authored by:`. Missing credits fall back to the GitHub login with a warning. Check aliases and coauthors manually.
+Both repos' existing `## Changelog` templates are supported, including fenced Markdown, `Authored by:`, multiple sections, and nested bullets. HTML comments and the checklist are excluded. Explicit `[by Name]` credits are preserved; otherwise credits use `Authored by:`. Following the announcement history, automatic credits are omitted when all named authors are Clare/Jomshir, Claudia, or Sekkmer (including their GitHub aliases Jomshir98 and ClaudiaMia). Their source attribution remains in the JSON and PR list. Contributor credits and mixed collaborations are kept. Missing names fall back to the GitHub login, with a review warning for other contributors. Check aliases and coauthors manually.
 
 Entries are grouped by section and alphabetically by credited author, preserving each author's original order. Unknown sections are retained with a review warning. PRs are deduplicated within each repository; only merged PRs whose merge commit is in the selected range are included. Commit and PR-association pagination is followed, and API errors or incomplete ranges fail visibly. Commits without a matching PR remain available for review, including direct dependency updates.
 
